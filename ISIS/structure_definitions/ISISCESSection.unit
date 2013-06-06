@@ -1,0 +1,24 @@
+ISIS_REACH_SECTION_START(ISISCESSection, "RIVER|CES SECTION #REVISION#1")
+ISIS_REACH_LENGTH
+ISIS_PROPERTY(double, vertical_shift, 0.0)
+ISIS_PROPERTY(double, slope, 0.001)
+ISIS_PROPERTY(double, sinuosity, 1.0)
+ISIS_NEW_LINE
+ISIS_NO_OF_DATA(section_table)
+ISIS_DATA_TABLE(section_table,
+		"0000000000111111111122222222223333333333"
+		"444444444455555555556666666666")
+ISIS_TABLE_COLUMN(double, x, 0, section_table)
+ISIS_TABLE_COLUMN(double, y, 1, section_table)
+ISIS_TABLE_COLUMN(string, ces_bank_marker, 2, section_table)
+ISIS_TABLE_COLUMN(double, sinuosity, 3, section_table)
+ISIS_TABLE_COLUMN(string, bank_marker, 4, section_table)
+ISIS_TABLE_COLUMN(double, easting, 5, section_table)
+ISIS_TABLE_COLUMN(double, northing, 6, section_table)
+ISIS_NEW_LINE
+ISIS_NO_OF_DATA(zone_table)
+ISIS_DATA_TABLE(zone_table, "0000000000111111111111111111111111111111111111111"
+		"1111111111111111111111111111111111111111111111111111111111111")
+ISIS_TABLE_COLUMN(double, c, 0, zone_table)
+ISIS_TABLE_COLUMN(string, zone_name, 1, zone_table)
+ISIS_REACH_SECTION_END

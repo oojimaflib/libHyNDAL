@@ -1,0 +1,10 @@
+ISIS_STRUCTURE_START(ISISBernoulliLoss, "BERNOULLI")
+ISIS_NO_OF_DATA(loss_table)
+ISIS_PROPERTY(string, interpolation_flag, "LINEAR")
+ISIS_DATA_TABLE(loss_table, "00000000001111111111222222222233333333334444444444")
+ISIS_TABLE_COLUMN(double, depth, 0, loss_table)
+ISIS_TABLE_COLUMN(double, upstream_area, 1, loss_table)
+ISIS_TABLE_COLUMN(double, downstream_area, 2, loss_table)
+ISIS_TABLE_COLUMN(double, forward_loss, 3, loss_table)
+ISIS_TABLE_COLUMN(double, reverse_loss, 4, loss_table)
+ISIS_STRUCTURE_END

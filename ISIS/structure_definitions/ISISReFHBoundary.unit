@@ -1,0 +1,86 @@
+ISIS_STRUCTURE_START(ISISReFHBoundary, "ReFHBDY #REVISION#1")
+ISIS_PROPERTY(double, elevation, 0.0)
+ISIS_PROPERTY(double, easting, 0.0)
+ISIS_PROPERTY(double, northing, 0.0)
+ISIS_NEW_LINE
+ISIS_PROPERTY(double, time_datum, 0.0)
+ISIS_PROPERTY(double, delta_t, 0.0)
+ISIS_PROPERTY(string, baseflow_only_flag, "")
+ISIS_PROPERTY(string, scaling_flag, "")
+ISIS_PROPERTY(double, scaling_factor, 0.0)
+ISIS_PROPERTY(string, boundary_mode_flag, "")
+ISIS_PROPERTY(string, scaling_method, "")
+ISIS_PROPERTY(double, minimum_flow, 0.0)
+ISIS_NEW_LINE
+ISIS_PROPERTY(double, contributing_catchment_area, 0.0)
+ISIS_PROPERTY(double, standard_aar, 0.0)
+ISIS_PROPERTY(double, urban_extent, 0.0)
+ISIS_PROPERTY(string, season, "")
+ISIS_PROPERTY(string, use_dll, "")
+ISIS_NEW_LINE
+ISIS_PROPERTY(double, storm_area, 0.0)
+ISIS_PROPERTY(double, storm_duration, 0.0)
+ISIS_PROPERTY(double, snowmelt_rate, 0.0)
+ISIS_NEW_LINE
+ISIS_PROPERTY(string, event_rainfall_flag, "")
+ISIS_PROPERTY(string, arf_flag, "")
+// Comment here currently stripped
+ISIS_NEW_LINE
+ISIS_PROPERTY(double, precipitation, 0.0)
+ISIS_PROPERTY(double, return_period, 0.0)
+ISIS_PROPERTY(double, areal_reduction_factor, 0.0)
+ISIS_PROPERTY(double, ddf_c, 0.0)
+ISIS_PROPERTY(double, ddf_d1, 0.0)
+ISIS_PROPERTY(double, ddf_d2, 0.0)
+ISIS_PROPERTY(double, ddf_d3, 0.0)
+ISIS_PROPERTY(double, ddf_e, 0.0)
+ISIS_PROPERTY(double, ddf_f, 0.0)
+ISIS_NEW_LINE
+ISIS_PROPERTY(string, rainfall_profile_flag, "")
+ISIS_PROPERTY(string, seasonal_correction_method, "")
+ISIS_PROPERTY(double, seasonal_correction, 0.0)
+ISIS_NEW_LINE
+ISIS_NO_OF_DATA(rainfall_profile_table)
+ISIS_DATA_TABLE(rainfall_profile_table, "0000000000")
+ISIS_TABLE_COLUMN(double, rp, 0, rainfall_profile_table)
+ISIS_NEW_LINE
+ISIS_PROPERTY(string, c_max_method, "")
+ISIS_PROPERTY(string, c_ini_method, "")
+ISIS_PROPERTY(string, alpha_flag, "")
+// comment
+ISIS_NEW_LINE
+ISIS_PROPERTY(double, c_max_correction, 0.0)
+ISIS_PROPERTY(double, c_max, 0.0)
+ISIS_PROPERTY(double, c_ini, 0.0)
+ISIS_PROPERTY(double, alpha, 0.0)
+ISIS_PROPERTY(double, baseflow_index, 0.0)
+ISIS_NEW_LINE
+ISIS_PROPERTY(string, uh_flag, "")
+ISIS_PROPERTY(string, tp_method, "")
+ISIS_PROPERTY(string, uh_peak_method, "")
+ISIS_PROPERTY(string, uh_kink_method, "")
+ISIS_NEW_LINE
+ISIS_PROPERTY(double, time_to_peak_correction, 0.0)
+ISIS_PROPERTY(double, time_to_peak0, 0.0)
+ISIS_PROPERTY(double, tp_t, 0.0)
+ISIS_PROPERTY(double, mean_drainage_path_length, 0.0)
+ISIS_PROPERTY(double, mean_drainage_path_slope, 0.0)
+ISIS_PROPERTY(double, proportion_wet, 0.0)
+ISIS_PROPERTY(double, uh_peak, 0.0)
+ISIS_PROPERTY(double, uh_kink_factor, 0.0)
+ISIS_NEW_LINE
+ISIS_NO_OF_DATA(unit_hydrograph_table)
+ISIS_PROPERTY(string, uh_units, "")
+ISIS_PROPERTY(string, uh_factor, "")
+ISIS_DATA_TABLE(unit_hydrograph_table, "0000000000")
+ISIS_TABLE_COLUMN(double, uh, 0, unit_hydrograph_table)
+ISIS_NEW_LINE
+ISIS_PROPERTY(string, baseflow_lag_method, "")
+ISIS_PROPERTY(string, baseflow_recharge_method, "")
+ISIS_PROPERTY(string, baseflow_method, "")
+ISIS_PROPERTY(double, baseflow_lag_correction, 0.0)
+ISIS_PROPERTY(double, baseflow_lag, 0.0)
+ISIS_PROPERTY(double, baseflow_recharge_correction, 0.0)
+ISIS_PROPERTY(double, baseflow_recharge, 0.0)
+ISIS_PROPERTY(double, baseflow0, 0.0)
+ISIS_STRUCTURE_END

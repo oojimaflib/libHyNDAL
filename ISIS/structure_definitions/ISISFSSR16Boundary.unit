@@ -1,0 +1,78 @@
+ISIS_STRUCTURE_START(ISISFSSR16Boundary, "FSSR16BDY")
+ISIS_PROPERTY(double, elevation, 0.0)
+ISIS_NEW_LINE
+ISIS_PROPERTY(double, time_datum, 0.0)
+ISIS_PROPERTY(double, uh_time_step, 0.0)
+ISIS_PROPERTY(string, baseflow_only_flag, "")
+ISIS_NEW_LINE
+ISIS_PROPERTY(string, country, "")
+ISIS_NEW_LINE
+ISIS_PROPERTY(double, contributing_catchment_area, 0.0)
+ISIS_PROPERTY(double, slope10_85, 0.0)
+ISIS_PROPERTY(double, main_stream_length, 0.0)
+ISIS_PROPERTY(double, soil_fraction_sum, 0.0)
+ISIS_PROPERTY(double, urban_extent, 0.0)
+ISIS_NEW_LINE
+ISIS_PROPERTY(double, storm_area, 0.0)
+ISIS_PROPERTY(double, storm_duration, 0.0)
+ISIS_PROPERTY(double, resiual_soil_moisture_deficit, 0.0)
+ISIS_PROPERTY(double, snowmelt_rate, 0.0)
+ISIS_NEW_LINE
+ISIS_PROPERTY(double, standard_aar, 0.0)
+ISIS_PROPERTY(double, m5_2d, 0.0)
+ISIS_PROPERTY(double, m5_25d, 0.0)
+ISIS_PROPERTY(string, force_flag, "")
+ISIS_NEW_LINE
+ISIS_PROPERTY(string, event_rainfall_flag, "")
+ISIS_NEW_LINE
+
+ISIS_IF(event_rainfall_flag == "OBSER")
+ISIS_PROPERTY(double, precipitation, 0.0)
+ISIS_NEW_LINE
+ISIS_END_IF
+ISIS_IF(event_rainfall_flag == "FSRER")
+ISIS_PROPERTY(double, flood_return_period, 0.0)
+ISIS_PROPERTY(double, storm_return_period, 0.0)
+ISIS_PROPERTY(double, areal_reduction_factor, 0.0)
+ISIS_NEW_LINE
+ISIS_END_IF
+
+ISIS_PROPERTY(string, catchment_wetness_flag, "")
+ISIS_NEW_LINE
+ISIS_PROPERTY(double, catchment_wetness_index, 0.0)
+ISIS_NEW_LINE
+ISIS_PROPERTY(string, percent_runoff_flag, "")
+ISIS_PROPERTY(string, percent_runoff_method, "")
+ISIS_NEW_LINE
+
+ISIS_IF(percent_runoff_flag == "OBSPR")
+ISIS_PROPERTY(double, percent_runoff, 0.0)
+ISIS_NEW_LINE
+ISIS_END_IF
+ISIS_IF(percent_runoff_flag == "F16PR")
+ISIS_PROPERTY(double, standard_percent_runoff, 0.0)
+ISIS_NEW_LINE
+ISIS_END_IF
+
+ISIS_PROPERTY(string, tp_flag, "")
+ISIS_NEW_LINE
+ISIS_PROPERTY(double, calibration_factor, 0.0)
+ISIS_PROPERTY(double, time_to_peak, 0.0)
+ISIS_NEW_LINE
+ISIS_PROPERTY(string, baseflow_flag, "")
+ISIS_NEW_LINE
+ISIS_PROPERTY(double, adjusted_baseflow, 0.0)
+ISIS_PROPERTY(double, baseflow, 0.0)
+ISIS_NEW_LINE
+ISIS_PROPERTY(string, uh_flag, "")
+ISIS_NEW_LINE
+ISIS_NO_OF_DATA(unit_hydrograph_table)
+ISIS_DATA_TABLE(unit_hydrograph_table, "0000000000")
+ISIS_TABLE_COLUMN(double, uh, 0, unit_hydrograph_table)
+ISIS_NEW_LINE
+ISIS_PROPERTY(string, rainfall_profile_flag, "")
+ISIS_NEW_LINE
+ISIS_NO_OF_DATA(rainfall_profile_table)
+ISIS_DATA_TABLE(rainfall_profile_table, "0000000000")
+ISIS_TABLE_COLUMN(double, rp, 0, rainfall_profile_table)
+ISIS_STRUCTURE_END

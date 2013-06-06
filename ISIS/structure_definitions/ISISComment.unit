@@ -1,0 +1,4 @@
+ISIS_STRUCTURE_START(ISISComment, "COMMENT")
+ISIS_NO_OF_DATA(comment_block)
+ISIS_DATA_TABLE(comment_block, "~block~")
+ISIS_STRUCTURE_END

@@ -1,0 +1,105 @@
+ISIS_STRUCTURE_START(ISISFEHBoundary, "FEHBDY")
+ISIS_PROPERTY(double, elevation, 0.0)
+ISIS_PROPERTY(double, easting, 0.0)
+ISIS_PROPERTY(double, northing, 0.0)
+ISIS_NEW_LINE
+ISIS_PROPERTY(double, time_datum, 0.0)
+ISIS_PROPERTY(double, uh_time_step, 0.0)
+ISIS_PROPERTY(string, baseflow_only_flag, "")
+ISIS_PROPERTY(string, scaling_flag, "")
+ISIS_PROPERTY(double, scaling_factor, 0.0)
+ISIS_PROPERTY(string, boundary_mode_flag, "")
+ISIS_NEW_LINE
+ISIS_NEW_LINE
+ISIS_PROPERTY(double, contributing_catchment_area, 0.0)
+ISIS_PROPERTY(string, unused0, "")
+ISIS_PROPERTY(string, unused1, "")
+ISIS_PROPERTY(string, unused2, "")
+ISIS_PROPERTY(double, urban_extent, 0.0)
+ISIS_NEW_LINE
+ISIS_PROPERTY(double, storm_area, 0.0)
+ISIS_PROPERTY(double, storm_duration, 0.0)
+ISIS_PROPERTY(string, unused3, "")
+ISIS_PROPERTY(double, snowmelt_rate, 0.0)
+ISIS_PROPERTY(double, sn100, 0.0) //??? location defined but term not listed
+ISIS_NEW_LINE
+ISIS_PROPERTY(double, standard_aar, 0.0)
+ISIS_PROPERTY(string, unused4, "")
+ISIS_PROPERTY(string, unused5, "")
+ISIS_PROPERTY(string, unused6, "")
+ISIS_PROPERTY(string, force_flag, "")
+ISIS_NEW_LINE
+ISIS_PROPERTY(string, event_rainfall_flag, "")
+ISIS_NEW_LINE
+
+ISIS_IF(event_rainfall_flag == "OBSER")
+ISIS_PROPERTY(double, precipitation, 0.0)
+ISIS_END_IF
+
+ISIS_IF(event_rainfall_flag != "OBSER")
+ISIS_PROPERTY(double, flood_return_period, 0.0)
+ISIS_PROPERTY(double, storm_return_period, 0.0)
+ISIS_PROPERTY(double, areal_reduction_factor, 0.0)
+ISIS_PROPERTY(double, ddf_c, 0.0)
+ISIS_PROPERTY(double, ddf_d1, 0.0)
+ISIS_PROPERTY(double, ddf_d2, 0.0)
+ISIS_PROPERTY(double, ddf_d3, 0.0)
+ISIS_PROPERTY(double, ddf_e, 0.0)
+ISIS_PROPERTY(double, ddf_f, 0.0)
+ISIS_END_IF
+
+ISIS_NEW_LINE
+ISIS_PROPERTY(string, catchment_wetness_flag, "")
+ISIS_NEW_LINE
+ISIS_PROPERTY(double, catchment_wetness_index, 0.0)
+ISIS_PROPERTY(string, percent_runoff_flag, "")
+ISIS_PROPERTY(string, percent_runoff_method, "")
+
+ISIS_IF(percent_runoff_flag == "OBSPR")
+ISIS_PROPERTY(double, percent_runoff, 0.0)
+ISIS_END_IF
+
+ISIS_IF(percent_runoff_flag == "FEHPR")
+ISIS_PROPERTY(double, standard_percent_runoff, 0.0)
+ISIS_END_IF
+
+ISIS_NEW_LINE
+ISIS_PROPERTY(string, tp_flag, "")
+ISIS_NEW_LINE
+ISIS_PROPERTY(double, calibration_factor, 0.0)
+
+ISIS_IF(tp_flag == "OBSTP")
+ISIS_PROPERTY(double, time_to_peak, 0.0)
+ISIS_END_IF
+
+ISIS_IF(tp_flag == "FEHTP")
+ISIS_PROPERTY(double, mean_drainage_path_length, 0.0)
+ISIS_PROPERTY(double, mean_drainage_path_slope, 0.0)
+ISIS_PROPERTY(double, proportion_wet, 0.0)
+ISIS_END_IF
+
+ISIS_NEW_LINE
+ISIS_PROPERTY(string, baseflow_flag, "")
+ISIS_NEW_LINE
+ISIS_PROPERTY(double, adjusted_baseflow, 0.0)
+ISIS_PROPERTY(double, baseflow, 0.0)
+
+ISIS_PROPERTY(string, uh_flag, "")
+ISIS_NO_OF_DATA(unit_hydrograph_table)
+ISIS_PROPERTY(string, uh_units, "")
+ISIS_PROPERTY(string, uh_factor, "")
+
+ISIS_DATA_TABLE(unit_hydrograph_table, "0000000000")
+ISIS_TABLE_COLUMN(double, uh, 0, unit_hydrograph_table)
+ISIS_NEW_LINE
+ISIS_PROPERTY(string, rainfall_profile_flag, "")
+ISIS_NEW_LINE
+
+ISIS_NO_OF_DATA(rainfall_profile_table)
+ISIS_PROPERTY(double, em2h, 0.0)
+ISIS_PROPERTY(double, em24h, 0.0)
+ISIS_PROPERTY(double, em25d, 0.0)
+
+ISIS_DATA_TABLE(rainfall_profile_table, "0000000000")
+ISIS_TABLE_COLUMN(double, rp, 0, rainfall_profile_table)
+ISIS_STRUCTURE_END

@@ -1,0 +1,43 @@
+ISIS_REACH_SECTION_START(ISISVPMCRoutingSection, "RIVER|MUSK-RSEC")
+ISIS_REACH_LENGTH
+ISIS_PROPERTY(double, elevation, 0.0)
+ISIS_NEW_LINE
+ISIS_NEW_LINE
+ISIS_PROPERTY(string, friction_method, "MANNING")
+ISIS_NEW_LINE
+ISIS_PROPERTY(double, channel_friction, 0.0)
+ISIS_PROPERTY(double, floodplain_friction, 0.0)
+ISIS_NEW_LINE
+ISIS_PROPERTY(double, channel_slope, 0.0)
+ISIS_PROPERTY(double, floodplain_slope, 0.0)
+ISIS_NEW_LINE
+ISIS_PROPERTY(double, b1, 0.0)
+ISIS_PROPERTY(double, b2, 0.0)
+ISIS_PROPERTY(double, b3, 0.0)
+ISIS_PROPERTY(double, b4, 0.0)
+ISIS_NEW_LINE
+ISIS_PROPERTY(double, d1, 0.0)
+ISIS_PROPERTY(double, d2, 0.0)
+ISIS_PROPERTY(double, d3, 0.0)
+ISIS_PROPERTY(double, d4, 0.0)
+ISIS_NEW_LINE
+ISIS_PROPERTY(double, valley_side_slope, 0.0)
+ISIS_NEW_LINE
+ISIS_PROPERTY(double, qmax, 0.0)
+ISIS_PROPERTY(double, bankfull_proportion, 0.0)
+ISIS_NEW_LINE
+ISIS_PROPERTY(string, data_type, "")
+ISIS_NEW_LINE
+ISIS_IF(data_type == "VQ RATING")
+ISIS_NO_OF_DATA(vq_table)
+ISIS_DATA_TABLE(vq_table, "00000000001111111111")
+ISIS_TABLE_COLUMN(double, v, 0, vq_table)
+ISIS_TABLE_COLUMN(double, q, 1, vq_table)
+ISIS_END_IF
+ISIS_IF(data_type == "VQ POWER L")
+ISIS_PROPERTY(double, a, 0.0)
+ISIS_PROPERTY(double, b, 0.0)
+ISIS_PROPERTY(double, minimum_velocity, 0.0)
+ISIS_PROPERTY(double, minimum_discharge, 0.0)
+ISIS_END_IF
+ISIS_REACH_SECTION_END

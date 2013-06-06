@@ -1,0 +1,11 @@
+ISIS_STRUCTURE_START(ISISSyphonSpillway, "SYPHON")
+ISIS_PROPERTY(double, elevation, 0.0)
+ISIS_PROPERTY(double, soffit_level, 0.0)
+ISIS_PROPERTY(double, bore_area, 0.0)
+ISIS_PROPERTY(double, max_hood_level, 0.0)
+ISIS_NEW_LINE
+ISIS_PROPERTY(double, weir_coefficient, 1.0)
+ISIS_PROPERTY(double, full_bore_coefficient, 1.0)
+ISIS_PROPERTY(double, modular_limit, 0.8)
+ISIS_PROPERTY(double, priming_level, 0.0)
+ISIS_STRUCTURE_END

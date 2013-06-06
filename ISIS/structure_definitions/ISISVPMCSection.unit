@@ -1,0 +1,38 @@
+ISIS_REACH_SECTION_START(ISISVPMCSection, "RIVER|MUSK-XSEC")
+ISIS_REACH_LENGTH
+ISIS_PROPERTY(double, elevation, 0.0)
+ISIS_PROPERTY(double, slope, 0.0)
+ISIS_PROPERTY(double, minimum_subnodes, 0.0)
+ISIS_PROPERTY(double, maximum_subnodes, 0.0)
+ISIS_PROPERTY(double, qmax, 0.0)
+ISIS_PROPERTY(double, c0_factor, 0.0)
+ISIS_NEW_LINE
+ISIS_NEW_LINE
+ISIS_NO_OF_DATA(section_table)
+ISIS_DATA_TABLE(section_table,
+		"0000000000111111111122222222223444444444"
+		"555555555566666666667777777777")
+ISIS_TABLE_COLUMN(double, x, 0, section_table)
+ISIS_TABLE_COLUMN(double, y, 1, section_table)
+ISIS_TABLE_COLUMN(double, n, 2, section_table)
+ISIS_TABLE_COLUMN(bool, panel_marker, 3, section_table)
+ISIS_TABLE_COLUMN(double, relative_path_length, 4, section_table)
+ISIS_TABLE_COLUMN(string, bank_marker, 5, section_table)
+ISIS_TABLE_COLUMN(double, easting, 6, section_table)
+ISIS_TABLE_COLUMN(double, northing, 7, section_table)
+ISIS_NEW_LINE
+ISIS_PROPERTY(string, data_type, "")
+ISIS_NEW_LINE
+ISIS_IF(data_type == "VQ RATING")
+ISIS_NO_OF_DATA(vq_table)
+ISIS_DATA_TABLE(vq_table, "00000000001111111111")
+ISIS_TABLE_COLUMN(double, v, 0, vq_table)
+ISIS_TABLE_COLUMN(double, q, 1, vq_table)
+ISIS_END_IF
+ISIS_IF(data_type == "VQ POWER L")
+ISIS_PROPERTY(double, a, 0.0)
+ISIS_PROPERTY(double, b, 0.0)
+ISIS_PROPERTY(double, minimum_velocity, 0.0)
+ISIS_PROPERTY(double, minimum_discharge, 0.0)
+ISIS_END_IF
+ISIS_REACH_SECTION_END

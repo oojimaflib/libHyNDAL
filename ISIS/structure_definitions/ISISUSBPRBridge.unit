@@ -1,0 +1,46 @@
+ISIS_STRUCTURE_START(ISISUSBPRBridge, "BRIDGE|USBPR1978")
+ISIS_PROPERTY(string, friction_method, "MANNING")
+ISIS_NEW_LINE
+ISIS_PROPERTY(double, calibration_coefficient, 1.0)
+ISIS_PROPERTY(double, skew_angle, 0.0)
+ISIS_PROPERTY(double, bridge_width, 0.0)
+ISIS_PROPERTY(double, dual_bridge_width, 0.0)
+ISIS_PROPERTY(double, pier_width, 0.0)
+ISIS_PROPERTY(string, orifice_flow_flag, "ORIFICE")
+ISIS_PROPERTY(double, lower_orifice_transition, 0.0)
+ISIS_PROPERTY(double, upper_orifice_transition, 0.0)
+ISIS_PROPERTY(double, orifice_coefficient, 1.0)
+ISIS_NEW_LINE
+ISIS_PROPERTY(long_int, abutment_type, 3)
+ISIS_NEW_LINE
+ISIS_PROPERTY(long_int, no_of_piers, 1)
+ISIS_PROPERTY(string, pier_shape, "RECTANGLE")
+ISIS_PROPERTY(string, pier_other_shape, "STREAMLINE")
+ISIS_PROPERTY(double, pier_coefficient, 0.0)
+ISIS_NEW_LINE
+ISIS_PROPERTY(string, abutment_alignment, "ALIGNED")
+ISIS_NEW_LINE
+ISIS_NO_OF_DATA(section_table)
+ISIS_DATA_TABLE(section_table, "0000000000111111111122222222223333333333")
+ISIS_TABLE_COLUMN(double, x, 0, section_table)
+ISIS_TABLE_COLUMN(double, y, 1, section_table)
+ISIS_TABLE_COLUMN(double, n, 2, section_table)
+ISIS_TABLE_COLUMN(string, bank_marker, 3, section_table)
+ISIS_NEW_LINE
+ISIS_NO_OF_DATA(opening_table)
+ISIS_DATA_TABLE(opening_table, "0000000000111111111122222222223333333333")
+ISIS_TABLE_COLUMN(double, xl, 0, opening_table)
+ISIS_TABLE_COLUMN(double, xr, 1, opening_table)
+ISIS_TABLE_COLUMN(double, spring, 2, opening_table)
+ISIS_TABLE_COLUMN(double, soffit, 3, opening_table)
+ISIS_NEW_LINE
+ISIS_NO_OF_DATA(culvert_table)
+ISIS_DATA_TABLE(culvert_table,
+		"000000000011111111112222222222333333333344444444445555555555")
+ISIS_TABLE_COLUMN(double, culvert_invert, 0, culvert_table)
+ISIS_TABLE_COLUMN(double, culvert_soffit, 1, culvert_table)
+ISIS_TABLE_COLUMN(double, culvert_area, 2, culvert_table)
+ISIS_TABLE_COLUMN(double, culvert_weir_coefficient, 3, culvert_table)
+ISIS_TABLE_COLUMN(double, culvert_full_coefficient, 4, culvert_table)
+ISIS_TABLE_COLUMN(double, culvert_drown_coefficient, 5, culvert_table)
+ISIS_STRUCTURE_END

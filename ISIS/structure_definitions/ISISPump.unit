@@ -1,0 +1,45 @@
+ISIS_STRUCTURE_START(ISISPump, "OCPUMP")
+ISIS_PROPERTY(double, max_rpm, 0.0)
+ISIS_PROPERTY(double, optimal_head, 0.0)
+ISIS_PROPERTY(double, optimal_discharge, 0.0)
+ISIS_PROPERTY(double, optimal_efficiency, 0.0)
+ISIS_NEW_LINE
+ISIS_PROPERTY(string, control_method, "TIME")
+ISIS_NEW_LINE
+// Keyword: TRIGGER MODE
+ISIS_NEW_LINE
+ISIS_NO_OF_DATA(operations_table)
+ISIS_PROPERTY(string, time_units, "HOURS")
+ISIS_PROPERTY(string, repeat_flag, "EXTEND")
+ISIS_DATA_TABLE(operations_table, "000000000011111111112222222222")
+ISIS_TABLE_COLUMN(double, time, 0, operations_table)
+ISIS_TABLE_COLUMN(string, control_mode, 1, operations_table)
+ISIS_TABLE_COLUMN(string, pump_state, 2, operations_table)
+ISIS_NEW_LINE
+// Keyword: HEAD FLOW EFFICIENCY
+ISIS_NEW_LINE
+ISIS_NO_OF_DATA(pump_curve_table)
+ISIS_DATA_TABLE(pump_curve_table, "000000000011111111112222222222")
+ISIS_TABLE_COLUMN(double, head, 0, pump_curve_table)
+ISIS_TABLE_COLUMN(double, flow, 1, pump_curve_table)
+ISIS_TABLE_COLUMN(double, efficiency, 2, pump_curve_table)
+ISIS_NEW_LINE
+ISIS_KEYWORD("RULES")
+ISIS_NEW_LINE
+ISIS_NO_OF_DATA(rules_table)
+ISIS_PROPERTY(double, rules_sample_time, 0.0)
+ISIS_PROPERTY(string, rules_time_units, "HOURS")
+ISIS_PROPERTY(string, rules_repeat_flag, "EXTEND")
+ISIS_DATA_TABLE(rules_table, "~rules~")
+ISIS_NEW_LINE
+ISIS_KEYWORD("TIME RULE DATA SET")
+ISIS_NEW_LINE
+ISIS_NO_OF_DATA(rule_application_table)
+ISIS_DATA_TABLE(rule_application_table, "0000000000111111111111111111111111111"
+		"1111111111111111111111111111111111111111111111111111111111111"
+		"1111111111111111111111111111111111111111111111111111111111111"
+		"1111111111111111111111111111111111111111111111111111111111111"
+		"1111111111111111111111111111111111111111111111111111111111111")
+ISIS_TABLE_COLUMN(double, rule_application_time, 0, rule_application_table)
+ISIS_TABLE_COLUMN(string, rules_applied, 1, rule_application_table)
+ISIS_STRUCTURE_END

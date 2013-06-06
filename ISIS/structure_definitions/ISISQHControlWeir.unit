@@ -1,0 +1,10 @@
+ISIS_STRUCTURE_START(ISISQHControlWeir, "QH CONTROL")
+ISIS_PROPERTY(double, elevation, 0.0)
+ISIS_PROPERTY(double, modular_limit, 0.7)
+ISIS_PROPERTY(string, interpolation_flag, "LINEAR")
+ISIS_NEW_LINE
+ISIS_NO_OF_DATA(qh_table)
+ISIS_DATA_TABLE(qh_table, "00000000001111111111")
+ISIS_TABLE_COLUMN(double, q, 0, qh_table)
+ISIS_TABLE_COLUMN(double, h, 1, qh_table)
+ISIS_STRUCTURE_END

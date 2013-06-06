@@ -1,0 +1,10 @@
+ISIS_STRUCTURE_START(ISISHTBoundary, "HTBDY")
+ISIS_NO_OF_DATA(ht_table)
+ISIS_PROPERTY(double, elevation, 0.0)
+ISIS_PROPERTY(string, time_units, "HOURS")
+ISIS_PROPERTY(string, repeat_flag, "EXTEND")
+ISIS_PROPERTY(string, interpolation_flag, "LINEAR")
+ISIS_DATA_TABLE(ht_table, "00000000001111111111")
+ISIS_TABLE_COLUMN(double, h, 0, ht_table)
+ISIS_TABLE_COLUMN(double, t, 1, ht_table)
+ISIS_STRUCTURE_END

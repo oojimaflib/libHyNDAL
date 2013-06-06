@@ -1,0 +1,27 @@
+ISIS_STRUCTURE_START(ISISArchBridge, "BRIDGE|ARCH")
+ISIS_PROPERTY(string, friction_method, "MANNING")
+ISIS_NEW_LINE
+ISIS_PROPERTY(double, calibration_coefficient, 1.0)
+ISIS_PROPERTY(double, skew_angle, 0.0)
+ISIS_PROPERTY(double, bridge_width, 0.0)
+ISIS_PROPERTY(double, dual_bridge_width, 0.0)
+ISIS_PROPERTY(double, unused, 0.0)
+ISIS_PROPERTY(string, orifice_flow_flag, "ORIFICE")
+ISIS_PROPERTY(double, lower_orifice_transition, 0.0)
+ISIS_PROPERTY(double, upper_orifice_transition, 0.0)
+ISIS_PROPERTY(double, orifice_coefficient, 1.0)
+ISIS_NEW_LINE
+ISIS_NO_OF_DATA(section_table)
+ISIS_DATA_TABLE(section_table, "0000000000111111111122222222223333333333")
+ISIS_TABLE_COLUMN(double, x, 0, section_table)
+ISIS_TABLE_COLUMN(double, y, 1, section_table)
+ISIS_TABLE_COLUMN(double, n, 2, section_table)
+ISIS_TABLE_COLUMN(string, bank_marker, 3, section_table)
+ISIS_NEW_LINE
+ISIS_NO_OF_DATA(opening_table)
+ISIS_DATA_TABLE(opening_table, "0000000000111111111122222222223333333333")
+ISIS_TABLE_COLUMN(double, xl, 0, opening_table)
+ISIS_TABLE_COLUMN(double, xr, 1, opening_table)
+ISIS_TABLE_COLUMN(double, spring, 2, opening_table)
+ISIS_TABLE_COLUMN(double, soffit, 3, opening_table)
+ISIS_STRUCTURE_END

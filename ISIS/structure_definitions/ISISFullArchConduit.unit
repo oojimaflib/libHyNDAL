@@ -1,0 +1,18 @@
+ISIS_REACH_SECTION_START(ISISFullArchConduit, "CONDUIT|FULLARCH")
+ISIS_REACH_LENGTH
+ISIS_NEW_LINE
+ISIS_PROPERTY(string, friction_method, "MANNING")
+ISIS_NEW_LINE
+ISIS_PROPERTY(double, invert_level, 0.0)
+ISIS_PROPERTY(double, width, 0.0)
+ISIS_PROPERTY(double, height, 0.0)
+ISIS_PROPERTY(string, bottom_slot, "GLOBAL")
+ISIS_PROPERTY(double, bottom_slot_height, 0.0)
+ISIS_PROPERTY(double, bottom_slot_depth, 0.0)
+ISIS_PROPERTY(string, top_slot, "GLOBAL")
+ISIS_PROPERTY(double, top_slot_height, 0.0)
+ISIS_PROPERTY(double, top_slot_depth, 0.0)
+ISIS_NEW_LINE
+ISIS_PROPERTY(double, bottom_friction, 0.0)
+ISIS_PROPERTY(double, arch_friction, 0.0)
+ISIS_REACH_SECTION_END

@@ -1,0 +1,9 @@
+ISIS_STRUCTURE_START(ISISWeir, "WEIR")
+ISIS_PROPERTY(double, exponent, 1.5)
+ISIS_NEW_LINE
+ISIS_PROPERTY(double, discharge_coefficient, 1.0)
+ISIS_PROPERTY(double, velocity_coefficient, 1.0)
+ISIS_PROPERTY(double, breadth, 0.0)
+ISIS_PROPERTY(double, elevation, 0.0)
+ISIS_PROPERTY(double, modular_limit, 0.8)
+ISIS_STRUCTURE_END

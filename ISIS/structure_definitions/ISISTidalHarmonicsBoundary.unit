@@ -1,0 +1,21 @@
+ISIS_STRUCTURE_START(ISISTidalHarmonicsBoundary, "TIDBDY")
+ISIS_PROPERTY(double, elevation, 0.0)
+ISIS_NEW_LINE
+ISIS_PROPERTY(double, surge_start_time, 0.0)
+ISIS_PROPERTY(double, surge_duration, 0.0)
+ISIS_PROPERTY(double, surge_amplitude, 0.0)
+ISIS_PROPERTY(double, surge_cosine_power, 1.0)
+ISIS_NEW_LINE
+ISIS_PROPERTY(double, mean_sea_level, 0.0)
+ISIS_NEW_LINE
+ISIS_PROPERTY(double, start_time, 0.0)
+ISIS_PROPERTY(string, start_date, "")
+ISIS_PROPERTY(string, start_year, "")
+ISIS_PROPERTY(string, date_flag, "")
+ISIS_NEW_LINE
+ISIS_NO_OF_DATA(harmonics_table)
+ISIS_DATA_TABLE(harmonics_table, "000011111111112222222222")
+ISIS_TABLE_COLUMN(string, constituent, 0, harmonics_table)
+ISIS_TABLE_COLUMN(double, amplitude, 1, harmonics_table)
+ISIS_TABLE_COLUMN(double, phase, 2, harmonics_table)
+ISIS_STRUCTURE_END

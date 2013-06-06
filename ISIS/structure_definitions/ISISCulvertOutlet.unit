@@ -1,0 +1,5 @@
+ISIS_STRUCTURE_START(ISISCulvertOutlet, "CULVERT|OUTLET")
+ISIS_PROPERTY(double, head_loss_coefficient, 1.0)
+ISIS_PROPERTY(string, reverse_flow_mode, "CALCULATED")
+ISIS_PROPERTY(string, head_loss_method, "STATIC")
+ISIS_STRUCTURE_END

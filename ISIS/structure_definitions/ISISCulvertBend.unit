@@ -1,0 +1,6 @@
+ISIS_STRUCTURE_START(ISISCulvertBend, "CULVERT|BEND")
+ISIS_PROPERTY(string, flow_control, "UPSTREAM")
+ISIS_NEW_LINE
+ISIS_PROPERTY(double, head_loss_coefficient, 0.0)
+ISIS_PROPERTY(string, reverse_flow_mode, "CALCULATED")
+ISIS_STRUCTURE_END

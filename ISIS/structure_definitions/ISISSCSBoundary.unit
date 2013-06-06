@@ -1,0 +1,30 @@
+ISIS_STRUCTURE_START(ISISSCSBoundary, "SCSBDY")
+ISIS_PROPERTY(double, elevation, 0.0)
+ISIS_NEW_LINE
+ISIS_PROPERTY(double, time_datum, 0.0)
+ISIS_PROPERTY(double, uh_time_step, 0.0)
+ISIS_NEW_LINE
+ISIS_PROPERTY(double, catchment_area, 0.0)
+ISIS_PROPERTY(double, storm_duration, 0.0)
+ISIS_NEW_LINE
+ISIS_PROPERTY(double, precipitation, 0.0)
+ISIS_NEW_LINE
+ISIS_PROPERTY(double, percent_runoff, 0.0) // If -ve this is the curve number
+ISIS_NEW_LINE
+ISIS_PROPERTY(double, time_to_peak, 0.0)
+ISIS_NEW_LINE
+ISIS_PROPERTY(double, adjusted_baseflow, 0.0)
+ISIS_PROPERTY(double, baseflow, 0.0)
+ISIS_NEW_LINE
+ISIS_PROPERTY(string, uh_flag, "")
+ISIS_NEW_LINE
+ISIS_NO_OF_DATA(unit_hydrograph_table)
+ISIS_DATA_TABLE(unit_hydrograph_table, "0000000000")
+ISIS_TABLE_COLUMN(double, uh, 0, unit_hydrograph_table)
+ISIS_NEW_LINE
+ISIS_PROPERTY(string, rainfall_profile_flag, "")
+ISIS_NEW_LINE
+ISIS_NO_OF_DATA(rainfall_profile_table)
+ISIS_DATA_TABLE(rainfall_profile_table, "0000000000")
+ISIS_TABLE_COLUMN(double, rp, 0, rainfall_profile_table)
+ISIS_STRUCTURE_END

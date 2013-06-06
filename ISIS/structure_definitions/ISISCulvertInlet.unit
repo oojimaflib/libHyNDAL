@@ -1,0 +1,16 @@
+ISIS_STRUCTURE_START(ISISCulvertInlet, "CULVERT|INLET")
+ISIS_PROPERTY(double, K, 0.0)
+ISIS_PROPERTY(double, M, 0.0)
+ISIS_PROPERTY(double, c, 0.0)
+ISIS_PROPERTY(double, Y, 0.0)
+ISIS_PROPERTY(double, Ki, 0.0)
+ISIS_PROPERTY(string, e, "'")
+ISIS_NEW_LINE
+ISIS_PROPERTY(double, screen_width, 0.0)
+ISIS_PROPERTY(double, screen_normal_blockage, 0.0)
+ISIS_PROPERTY(double, screen_debris_blockage, 0.0)
+ISIS_PROPERTY(double, screen_coefficient, 0.0)
+ISIS_PROPERTY(string, reverse_flow_mode, "CALCULATED")
+ISIS_PROPERTY(string, head_loss_method, "STATIC")
+ISIS_PROPERTY(double, screen_height, 0.0)
+ISIS_STRUCTURE_END

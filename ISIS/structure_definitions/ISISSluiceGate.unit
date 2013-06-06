@@ -1,0 +1,7 @@
+ISIS_STRUCTURE_START(ISISSluiceGate, "GATE")
+ISIS_NO_OF_DATA(operations_table)
+ISIS_DATA_TABLE(operations_table, "00000000001111111112222222222")
+ISIS_TABLE_COLUMN(double, time, 0, operations_table)
+ISIS_TABLE_COLUMN(string, operation_mode, 1, operations_table)
+ISIS_TABLE_COLUMN(double, opening, 2, operations_table)
+ISIS_STRUCTURE_END

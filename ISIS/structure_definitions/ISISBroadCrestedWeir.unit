@@ -1,0 +1,10 @@
+ISIS_STRUCTURE_START(ISISBroadCrestedWeir, "RNWEIR")
+ISIS_PROPERTY(double, velocity_coefficient, 1.0)
+ISIS_PROPERTY(double, weir_length, 0.0)
+ISIS_PROPERTY(double, breadth, 0.0)
+ISIS_PROPERTY(double, elevation, 0.0)
+ISIS_PROPERTY(double, modular_limit, 0.7)
+ISIS_NEW_LINE
+ISIS_PROPERTY(double, p1, 0.0)
+ISIS_PROPERTY(double, p2, 0.0)
+ISIS_STRUCTURE_END

@@ -1,0 +1,14 @@
+ISIS_STRUCTURE_START(ISISFlatVWeir, "FLAT-V WEIR")
+ISIS_PROPERTY(double, calibration_coefficient, 0.0)
+ISIS_PROPERTY(double, breadth, 0.0)
+ISIS_PROPERTY(double, elevation, 0.0)
+ISIS_PROPERTY(double, modular_limit, 0.7)
+ISIS_PROPERTY(double, v_slope, 0.0)
+ISIS_PROPERTY(double, channel_side_slope, 0.0)
+ISIS_PROPERTY(long_int, downstream_slope_flag, 5)
+ISIS_PROPERTY(double, alpha, 0.0)
+ISIS_PROPERTY(double, bank_top_level, 0.0)
+ISIS_NEW_LINE
+ISIS_PROPERTY(double, p1, 0.0)
+ISIS_PROPERTY(double, p2, 0.0)
+ISIS_STRUCTURE_END

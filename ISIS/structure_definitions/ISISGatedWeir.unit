@@ -1,0 +1,40 @@
+ISIS_STRUCTURE_START(ISISGatedWeir, "GATED WEIR")
+ISIS_PROPERTY(double, throat_coefficient, 1.0)
+ISIS_PROPERTY(double, gate_coefficient, 1.0)
+ISIS_PROPERTY(double, reverse_coefficient, 1.0)
+ISIS_PROPERTY(double, modular_limit, 0.7)
+ISIS_PROPERTY(string, gate_orientation, "FORWARD")
+ISIS_NEW_LINE
+ISIS_PROPERTY(double, breadth, 0.0)
+ISIS_PROPERTY(double, elevation, 0.0)
+ISIS_PROPERTY(double, gate_height, 0.0)
+ISIS_PROPERTY(long_int, bias_factor, 1)
+ISIS_NEW_LINE
+ISIS_PROPERTY(long_int, no_of_gates, 1)
+ISIS_PROPERTY(string, time_units, "HOURS")
+ISIS_PROPERTY(string, repeat_flag, "EXTEND")
+ISIS_NEW_LINE
+ISIS_PROPERTY(string, operating_mode, "TIME")
+ISIS_PROPERTY(double, max_movement_rate, 0.0)
+ISIS_PROPERTY(double, max_opening, 0.0)
+ISIS_PROPERTY(double, min_opening, 0.0)
+ISIS_NEW_LINE
+ISIS_KEYWORD("RULES")
+ISIS_NEW_LINE
+ISIS_NO_OF_DATA(rules_table)
+ISIS_PROPERTY(double, rules_sample_time, 0.0)
+ISIS_PROPERTY(string, rules_time_units, "HOURS")
+ISIS_PROPERTY(string, rules_repeat_flag, "EXTEND")
+ISIS_DATA_TABLE(rules_table, "~rules~")
+ISIS_NEW_LINE
+ISIS_KEYWORD("TIME RULE DATA SET")
+ISIS_NEW_LINE
+ISIS_NO_OF_DATA(rule_application_table)
+ISIS_DATA_TABLE(rule_application_table, "0000000000111111111111111111111111111"
+		"1111111111111111111111111111111111111111111111111111111111111"
+		"1111111111111111111111111111111111111111111111111111111111111"
+		"1111111111111111111111111111111111111111111111111111111111111"
+		"1111111111111111111111111111111111111111111111111111111111111")
+ISIS_TABLE_COLUMN(double, rule_application_time, 0, rule_application_table)
+ISIS_TABLE_COLUMN(string, rules_applied, 1, rule_application_table)
+ISIS_STRUCTURE_END

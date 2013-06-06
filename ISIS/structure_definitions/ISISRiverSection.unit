@@ -1,0 +1,20 @@
+ISIS_REACH_SECTION_START(ISISRiverSection, "RIVER|SECTION")
+ISIS_REACH_LENGTH
+ISIS_PROPERTY(string, undocumented1, "")
+ISIS_PROPERTY(string, undocumented2, "")
+ISIS_PROPERTY(string, undocumented3, "")
+ISIS_NEW_LINE
+ISIS_NO_OF_DATA(section_table)
+ISIS_DATA_TABLE(section_table,
+		"0000000000111111111122222222223444444444"
+		"5555555555666666666677777777778888888888")
+ISIS_TABLE_COLUMN(double, x, 0, section_table)
+ISIS_TABLE_COLUMN(double, y, 1, section_table)
+ISIS_TABLE_COLUMN(double, n, 2, section_table)
+ISIS_TABLE_COLUMN(bool, panel_marker, 3, section_table)
+ISIS_TABLE_COLUMN(double, relative_path_length, 4, section_table)
+ISIS_TABLE_COLUMN(string, bank_marker, 5, section_table)
+ISIS_TABLE_COLUMN(double, easting, 6, section_table)
+ISIS_TABLE_COLUMN(double, northing, 7, section_table)
+ISIS_TABLE_COLUMN(string, deactivation_marker, 8, section_table)
+ISIS_REACH_SECTION_END
