@@ -101,6 +101,7 @@
 #include "structure_definitions/ISISSCSBoundary.unit"
 #include "structure_definitions/ISISFEHBoundary.unit"
 #include "structure_definitions/ISISReFHBoundary.unit"
+#include "structure_definitions/ISISReFHUrbanBoundary.unit"
 #include "structure_definitions/ISISInterpolate.unit"
 #include "structure_definitions/ISISOpenJunction.unit"
 #include "structure_definitions/ISISEnergyJunction.unit"
