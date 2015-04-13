@@ -83,6 +83,10 @@ namespace HyNDAL {
 
     virtual void remove_structure(const std::string& structure_name);
 
+    virtual void replace_structure(OneDStructure* old_structure,
+				   OneDStructure* new_structure,
+				   bool delete_old_structure = true);
+
     virtual size_t no_of_connections(void) { return connections_.size(); }
   
     // Return the name of the kth connection

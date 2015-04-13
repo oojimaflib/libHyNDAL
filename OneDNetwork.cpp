@@ -98,6 +98,14 @@ namespace HyNDAL {
     remove_structure(find_structure(structure_name));
   }
 
+  void OneDNetwork::replace_structure(OneDStructure* old_structure,
+				      OneDStructure* new_structure,
+				      bool delete_old_structure)
+  {
+    structures_.at(find_structure(old_structure)).second = new_structure;
+    if (delete_old_structure) delete old_structure;
+  }
+
   const std::string& OneDNetwork::get_name(const size_t structure_no)
   {
     return structures_.at(structure_no).first;
