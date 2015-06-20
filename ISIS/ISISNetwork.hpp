@@ -67,6 +67,12 @@ namespace HyNDAL {
 				    HyNDAL::OneDStructure* structure);
       
       virtual void remove_structure(const size_t structure_no);
+
+      /*
+      virtual void replace_structure(OneDStructure* old_structure,
+				     OneDStructure* new_structure,
+				     bool delete_old_structure = true);
+      */
       
       // Add structures in ISIS DAT file format from a stream (read
       // structures with GENERAL unit and INITIAL CONDITIONS)

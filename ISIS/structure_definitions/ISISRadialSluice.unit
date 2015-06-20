@@ -27,7 +27,7 @@ ISIS_PROPERTY(double, max_opening, 0.0)
 ISIS_PROPERTY(double, min_opening, 0.0)
 ISIS_PROPERTY(string, setsluice_node_label, "")
 
-ISIS_IF(operating_mode == "RULES")
+ISIS_IF(operating_mode == "LOGICAL")
 ISIS_NEW_LINE
 ISIS_NO_OF_DATA(rules_table)
 ISIS_PROPERTY(double, rules_sample_time, 0.0)

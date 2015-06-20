@@ -44,6 +44,10 @@ namespace HyNDAL {
       : node_labels_(string_to_list(config.get<std::string>("node-labels", ""))),
 	comment_(config.get<std::string>("comment", ""))
     {
+      /*
+      std::cout << "Created ISISStructure object with " << node_labels_.size()
+		<< " labels" << std::endl;
+      */
     }
 
     ISISStructure::~ISISStructure(void) {

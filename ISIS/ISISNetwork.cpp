@@ -45,6 +45,7 @@ namespace HyNDAL {
 
       // Initial check: are there any initial conditions at all?
       if (initial_conditions_->no_of_rows() == 0) {
+	//std::cout << "Adding initial condition for " << node_label << std::endl;
 	initial_conditions_->append_row("             y     0.000     0.000     "
 					"0.000     0.000     0.000     0.000");
 	initial_conditions_->set_string(initial_conditions_->no_of_rows() - 1,
@@ -61,9 +62,11 @@ namespace HyNDAL {
       }
 
       if (!represented) {
+	//std::cout << "Adding initial condition for " << node_label << std::endl;
 	initial_conditions_->append_row(initial_conditions_->get_row(0));
 	initial_conditions_->set_string(initial_conditions_->no_of_rows() - 1,
 					0, node_label);
+	//std::cout << "No. of initial conditions = " << initial_conditions_->no_of_rows() << std::endl;
       }
     }
 
@@ -128,7 +131,8 @@ namespace HyNDAL {
       // Update the initial conditions table as needed
       ISISStructure* istruct = dynamic_cast<ISISStructure*>(structure);
   
-      //std::cout << "Created ISISStructure object." << std::endl;
+      //      std::cout << "Created ISISStructure object with "
+      //		<< istruct->no_of_node_labels() << " labels" << std::endl;
       for (size_t i = 0; i < istruct->no_of_node_labels(); i++) {
 	std::string node_label
 	  = boost::algorithm::trim_copy(istruct->node_label(i));
@@ -266,6 +270,10 @@ namespace HyNDAL {
       OneDNetwork::insert_structure(before, name, structure);
     }
 
+    /*
+    void ISISNetwork::replace_structure(OneDStructure* 
+    */
+    
     void ISISNetwork::remove_structure(const size_t structure_no)
     {
       // Get the structure pointer (we are an ISISNetwork so we can
@@ -322,7 +330,9 @@ namespace HyNDAL {
       node_labels.push_back(boost::algorithm::trim_copy(line));		\
       config.put<std::string>("node-labels", list_to_string(node_labels)); \
       /* Special case: Some structures have nothing but node labels! */	\
-      if (structname != "JUNCTION") std::getline(is, line);		\
+      if (structname != "JUNCTION") {					\
+	std::getline(is, line);						\
+      }									\
       /* Special case: Reservoirs have two lines of node labels */	\
       if (structname == "RESERVOIR #REVISION#1") {			\
 	boost::property_tree::ptree& extra =				\
