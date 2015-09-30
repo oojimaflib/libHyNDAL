@@ -1,0 +1,11 @@
+ISIS_STRUCTURE_START(ISISOutfall, "OUTFALL|OPEN")
+ISIS_PROPERTY(double, invert_level, 0.0)
+ISIS_PROPERTY(double, soffit_level, 0.0)
+ISIS_PROPERTY(double, bore_area, 0.0)
+ISIS_PROPERTY(double, upstream_sill_level, 0.0)
+ISIS_PROPERTY(double, downstream_sill_level, 0.0)
+ISIS_NEW_LINE
+ISIS_PROPERTY(double, weir_coefficient, 1.0)
+ISIS_PROPERTY(double, orifice_coefficient, 1.0)
+ISIS_PROPERTY(double, modular_limit, 0.7)
+ISIS_STRUCTURE_END

@@ -200,12 +200,12 @@ namespace HyNDAL {
 
       // Trim to length
       if (value.size() > end_char - start_char) {
-	std::cout << "Trimming string from " << value << " (" << value.size()
-		  << ") to ";
+	//std::cout << "Trimming string from " << value << " (" << value.size()
+	//	  << ") to ";
 	value = value.substr(0, end_char - start_char);
-	std::cout << value << " (" << value.size() << ")" << std::endl;
-	std::cout << "n.b. end_char - start_char = " << end_char - start_char
-		  << std::endl;
+	//std::cout << value << " (" << value.size() << ")" << std::endl;
+	//std::cout << "n.b. end_char - start_char = " << end_char - start_char
+	//	  << std::endl;
       }
 
       // Pad out the new value with spaces

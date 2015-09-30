@@ -334,7 +334,7 @@ namespace HyNDAL {
 	std::getline(is, line);						\
       }									\
       /* Special case: Reservoirs have two lines of node labels */	\
-      if (structname == "RESERVOIR #REVISION#1") {			\
+      if (structname == "RESERVOIR #revision#1") {			\
 	boost::property_tree::ptree& extra =				\
 	  config.put_child("extra", boost::property_tree::ptree());	\
 	if ( line.size() >= 12 ) {					\
@@ -568,7 +568,7 @@ namespace HyNDAL {
 	os << std::setw(12) << std::left << istruct->node_label(i);	\
       }									\
       if (structname != "JUNCTION") os << std::endl;			\
-      if (structname == "RESERVOIR #REVISION#1") {			\
+      if (structname == "RESERVOIR #revision#1") {			\
 	os << std::setw(12) << std::left				\
 	   << istruct->extra_data().get<std::string>("lateral-1","");	\
 	os << std::setw(12) << std::left				\

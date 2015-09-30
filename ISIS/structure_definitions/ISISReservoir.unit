@@ -1,4 +1,4 @@
-ISIS_STRUCTURE_START(ISISReservoir, "RESERVOIR #REVISION#1")
+ISIS_STRUCTURE_START(ISISReservoir, "RESERVOIR #revision#1")
 // NOTE: this unit has two lines of labels and needs to be
 // special-cased.
 ISIS_NO_OF_DATA(sa_table)
