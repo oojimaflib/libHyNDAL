@@ -27,6 +27,7 @@
 #include <boost/algorithm/string.hpp>
 
 #include <sstream>
+#include <iomanip>
 
 namespace HyNDAL {
   namespace ISIS {
@@ -219,7 +220,7 @@ namespace HyNDAL {
     void ISISDataTable::set_double(size_t row, size_t col, double value)
     {
       std::ostringstream oss;
-      oss << value;
+      oss << std::setprecision(9) << value;
       set_string(row, col, oss.str());
     }
 
