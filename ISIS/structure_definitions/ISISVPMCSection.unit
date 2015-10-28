@@ -2,11 +2,12 @@ ISIS_REACH_SECTION_START(ISISVPMCSection, "RIVER|MUSK-XSEC")
 ISIS_REACH_LENGTH
 ISIS_PROPERTY(double, elevation, 0.0)
 ISIS_PROPERTY(double, slope, 0.0)
-ISIS_PROPERTY(double, minimum_subnodes, 0.0)
-ISIS_PROPERTY(double, maximum_subnodes, 0.0)
-ISIS_PROPERTY(double, qmax, 0.0)
+ISIS_PROPERTY(long_int, minimum_subnodes, 0)
+ISIS_PROPERTY(long_int, maximum_subnodes, 0)
+ISIS_PROPERTY(string, qmax, "")
 ISIS_PROPERTY(double, c0_factor, 0.0)
 ISIS_NEW_LINE
+ISIS_KEYWORD("CROSS SECTION")
 ISIS_NEW_LINE
 ISIS_NO_OF_DATA(section_table)
 ISIS_DATA_TABLE(section_table,
