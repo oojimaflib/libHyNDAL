@@ -1,10 +1,10 @@
 ISIS_STRUCTURE_START(ISISAbstraction, "ABSTRACTION")
-ISIS_PROPERTY(string, control_method, "TIME")
+ISIS_PROPERTY(string, control_method, "TIME", "Control Method", "")
 ISIS_NEW_LINE
 ISIS_NO_OF_DATA(operations_table)
-ISIS_PROPERTY(double, time_datum, 0.0)
-ISIS_PROPERTY(string, time_units, "HOURS")
-ISIS_PROPERTY(string, repeat_flag, "EXTEND")
+ISIS_PROPERTY(double, time_datum, 0.0, "Time Datum", "")
+ISIS_PROPERTY(string, time_units, "HOURS", "Manual Time Units", "")
+ISIS_PROPERTY(string, repeat_flag, "EXTEND", "Repeat Type", "")
 ISIS_DATA_TABLE(operations_table, "00000000001111111112222222222")
 ISIS_TABLE_COLUMN(double, time, 0, operations_table)
 ISIS_TABLE_COLUMN(string, operation_mode, 1, operations_table)
@@ -13,9 +13,9 @@ ISIS_NEW_LINE
 ISIS_KEYWORD("RULES")
 ISIS_NEW_LINE
 ISIS_NO_OF_DATA(rules_table)
-ISIS_PROPERTY(double, rules_sample_time, 0.0)
-ISIS_PROPERTY(string, rules_time_units, "HOURS")
-ISIS_PROPERTY(string, rules_repeat_flag, "EXTEND")
+ISIS_PROPERTY(double, rules_sample_time, 0.0, "Sample Time", "")
+ISIS_PROPERTY(string, rules_time_units, "HOURS", "Rules Time Units", "")
+ISIS_PROPERTY(string, rules_repeat_flag, "EXTEND", "Rules Repeat Flag", "")
 ISIS_DATA_TABLE(rules_table, "~rules~")
 ISIS_NEW_LINE
 ISIS_KEYWORD("TIME RULE DATA SET")

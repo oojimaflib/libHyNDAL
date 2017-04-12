@@ -47,7 +47,7 @@
 #endif
 
 #ifndef ISIS_PROPERTY
-#define ISIS_PROPERTY(TYPE, NAME, DEFAULT)
+#define ISIS_PROPERTY(TYPE, NAME, DEFAULT, DISPLAY_NAME, HELP_TEXT)
 #endif
 
 #ifndef ISIS_REACH_LENGTH
@@ -56,6 +56,10 @@
 
 #ifndef ISIS_DATA_TABLE
 #define ISIS_DATA_TABLE(NAME, FORMAT)
+#endif
+
+#ifndef ISIS_END_DATA_TABLE
+#define ISIS_END_DATA_TABLE(NAME)
 #endif
 
 #ifndef ISIS_TABLE_COLUMN
@@ -115,6 +119,7 @@
 #include "structure_definitions/ISISRatingCurve.unit"
 #include "structure_definitions/ISISReplicate.unit"
 #include "structure_definitions/ISISReservoir.unit"
+#include "structure_definitions/ISISReservoirOld.unit"
 #include "structure_definitions/ISISRiverSection.unit"
 #include "structure_definitions/ISISCESSection.unit"
 #include "structure_definitions/ISISMuskinghamSection.unit"
@@ -152,6 +157,7 @@
 #undef ISIS_REACH_SECTION_END
 #undef ISIS_PROPERTY
 #undef ISIS_DATA_TABLE
+#undef ISIS_END_DATA_TABLE
 #undef ISIS_TABLE_COLUMN
 #undef ISIS_NEW_LINE
 #undef ISIS_NO_OF_DATA

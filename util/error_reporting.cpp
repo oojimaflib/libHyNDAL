@@ -27,7 +27,6 @@ boostio::filtering_ostream* output_stream_;
 void set_log_file(std::string log_filename) {
   output_stream_ = new boostio::filtering_ostream;
   boostio::basic_file_sink<char> filesink(log_filename);
-  output_stream_->push(boostio::tee_device<typeof(std::cout),
-					   typeof(filesink)>(std::cout,
-							     filesink));
+  output_stream_->push(boostio::tee_device< decltype(std::cout),
+		       decltype(filesink) >(std::cout, filesink));
 }

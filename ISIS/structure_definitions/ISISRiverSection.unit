@@ -1,8 +1,8 @@
 ISIS_REACH_SECTION_START(ISISRiverSection, "RIVER|SECTION")
 ISIS_REACH_LENGTH
-ISIS_PROPERTY(string, undocumented1, "")
-ISIS_PROPERTY(string, undocumented2, "")
-ISIS_PROPERTY(string, undocumented3, "")
+ISIS_PROPERTY(string, undocumented1, "", "Undocumented Parameter", "")
+ISIS_PROPERTY(string, undocumented2, "", "Undocumented Parameter", "")
+ISIS_PROPERTY(string, undocumented3, "", "Undocumented Parameter", "")
 ISIS_NEW_LINE
 ISIS_NO_OF_DATA(section_table)
 ISIS_DATA_TABLE(section_table,
@@ -17,4 +17,5 @@ ISIS_TABLE_COLUMN(string, bank_marker, 5, section_table)
 ISIS_TABLE_COLUMN(double, easting, 6, section_table)
 ISIS_TABLE_COLUMN(double, northing, 7, section_table)
 ISIS_TABLE_COLUMN(string, deactivation_marker, 8, section_table)
+ISIS_END_DATA_TABLE(section_table)
 ISIS_REACH_SECTION_END

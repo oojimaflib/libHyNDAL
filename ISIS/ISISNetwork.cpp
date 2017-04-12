@@ -37,6 +37,7 @@
 namespace HyNDAL {
   namespace ISIS {
 
+    /*
     void ISISNetwork::
     add_default_initial_condition(const std::string& node_label)
     {
@@ -69,7 +70,9 @@ namespace HyNDAL {
 	//std::cout << "No. of initial conditions = " << initial_conditions_->no_of_rows() << std::endl;
       }
     }
+    */
 
+    /*
     void ISISNetwork::
     maybe_clear_initial_condition(const std::string& node_label)
     {
@@ -97,13 +100,37 @@ namespace HyNDAL {
 	}
       }
     }
+    */
 
+    std::set<std::string> ISISNetwork::node_label_set(void)
+    {
+      std::set<std::string> nl_set;
+
+      for (auto&& s : structures()) {
+	ISISStructure* is = dynamic_cast<ISISStructure*>(s.second);
+	for (size_t nlid = 0; nlid < is->no_of_node_labels(); ++nlid) {
+	  std::string node_label = is->node_label(nlid);
+	  if (node_label != "" and
+	      node_label != "COMMENT") {
+	    nl_set.emplace(node_label);
+	  }
+	}
+      }
+      return nl_set;
+    }
+    
+    size_t ISISNetwork::no_of_node_labels(void)
+    {
+      return node_label_set().size();
+    }
+    
     ISISNetwork::ISISNetwork(const boost::property_tree::ptree& config) 
       : OneDNetwork(config)
     {
       metadata_ = config.get_child("metadata",
 				   boost::property_tree::ptree());
 
+      /*
       boost::property_tree::ptree ic_config
 	= config.get_child("initial-conditions", boost::property_tree::ptree());
 
@@ -112,12 +139,13 @@ namespace HyNDAL {
       } else {
 	initial_conditions_ = new ISISDataTable(ic_config);
       }
+      */
 
     }
 
     ISISNetwork::~ISISNetwork(void)
     {
-      delete initial_conditions_;
+      // delete initial_conditions_;
     }
 
     void ISISNetwork::append_structure(const std::string& name,
@@ -136,7 +164,11 @@ namespace HyNDAL {
       for (size_t i = 0; i < istruct->no_of_node_labels(); i++) {
 	std::string node_label
 	  = boost::algorithm::trim_copy(istruct->node_label(i));
-	add_default_initial_condition(node_label);
+
+	if (node_label != "" and
+	    node_label != "COMMENT") {
+	  initial_conditions_map_[node_label] = InitialConditionData();
+	}
       }
   
       // Call the generic append_structure code for the rest of the work
@@ -264,7 +296,11 @@ namespace HyNDAL {
       for (size_t i = 0; i < istruct->no_of_node_labels(); i++) {
 	std::string node_label
 	  = boost::algorithm::trim_copy(istruct->node_label(i));
-	add_default_initial_condition(node_label);
+
+	if (node_label != "" and
+	    node_label != "COMMENT") {
+	  initial_conditions_map_[node_label] = InitialConditionData();
+	}
       }
 
       OneDNetwork::insert_structure(before, name, structure);
@@ -289,12 +325,6 @@ namespace HyNDAL {
       }
 
       OneDNetwork::remove_structure(structure_no);
-
-      // If there are no more references to the node labels, clear their
-      // initial condition
-      for (size_t i = 0; i < node_labels.size(); i++) {
-	maybe_clear_initial_condition(node_labels.at(i));
-      }
     }
 
 #define ISIS_STRUCTURE_START(NAME, ISIS_NAME)				\
@@ -306,71 +336,71 @@ namespace HyNDAL {
       structname = structname.substr(0, barpos);			\
     }									\
     if (structure_started || line.find(structname) == 0) {		\
-    std::string type = "ISIS-" ISIS_NAME;				\
-    std::string comment_text = "";					\
-    if (!structure_started && line.size() > structname.size() + 1) {	\
-      config.put<std::string>("comment",				\
-			      boost::algorithm::trim_copy(line.substr(structname.size() + 1))); \
-    }									\
-    if (!structure_started) std::getline(is, line);			\
-    structure_started = true;						\
-    if (structname2.size() > 0 && line.find(structname2) == 0) {	\
-      std::getline(is,line);						\
-      structname2 = "";							\
-    }									\
-    if (structname2 == "") {						\
-    std::string structure_name = boost::algorithm::trim_copy(line);	\
-    /* Special Case: Some structures have no node labels */		\
-    if (structname != "COMMENT" && structname != "GATE") {		\
-      std::vector<std::string> node_labels;				\
-      while ( line.size() > 12 ) {					\
-	node_labels.push_back(boost::algorithm::trim_copy(line.substr(0, 12))); \
-	line = line.substr(12);						\
+      std::string type = "ISIS-" ISIS_NAME;				\
+      std::string comment_text = "";					\
+      if (!structure_started && line.size() > structname.size() + 1) {	\
+	config.put<std::string>("comment",				\
+				boost::algorithm::trim_copy(line.substr(structname.size() + 1))); \
       }									\
-      node_labels.push_back(boost::algorithm::trim_copy(line));		\
-      config.put<std::string>("node-labels", list_to_string(node_labels)); \
-      /* Special case: Some structures have nothing but node labels! */	\
-      if (structname != "JUNCTION") {					\
-	std::getline(is, line);						\
+      if (!structure_started) std::getline(is, line);			\
+      structure_started = true;						\
+      if (structname2.size() > 0 && line.find(structname2) == 0) {	\
+	std::getline(is,line);						\
+	structname2 = "";						\
       }									\
-      /* Special case: Reservoirs have two lines of node labels */	\
-      if (structname == "RESERVOIR #revision#1") {			\
-	boost::property_tree::ptree& extra =				\
-	  config.put_child("extra", boost::property_tree::ptree());	\
-	if ( line.size() >= 12 ) {					\
-	  std::string lat = boost::algorithm::trim_copy(line.substr(0, 12)); \
-	  line = line.substr(12);					\
-	  extra.put<std::string>("lateral-1", lat);			\
-	}								\
-	if ( line.size() >= 12 ) {					\
-	  std::string lat = boost::algorithm::trim_copy(line.substr(0, 12)); \
-	  line = line.substr(12);					\
-	  extra.put<std::string>("lateral-2", lat);			\
-	}								\
-	if ( line.size() >= 12 ) {					\
-	  std::string lat = boost::algorithm::trim_copy(line.substr(0, 12)); \
-	  line = line.substr(12);					\
-	  extra.put<std::string>("lateral-3", lat);			\
-	}								\
-	if ( line.size() >= 12 ) {					\
-	  std::string lat = boost::algorithm::trim_copy(line.substr(0, 12)); \
-	  line = line.substr(12);					\
-	  extra.put<std::string>("lateral-4", lat);			\
-	}								\
-	std::getline(is, line);						\
-      }									\
-    } else {								\
-      std::ostringstream oss("COMMENT ");				\
-      oss << no_of_structures();					\
-      structure_name = oss.str();					\
-      config.put<std::string>("node-labels", "COMMENT");		\
-    }
-
+      if (structname2 == "") {						\
+	std::string structure_name = boost::algorithm::trim_copy(line);	\
+	/* Special Case: Some structures have no node labels */		\
+	if (structname != "COMMENT" && structname != "GATE") {		\
+	  std::vector<std::string> node_labels;				\
+	  while ( line.size() > 12 ) {					\
+	    node_labels.push_back(boost::algorithm::trim_copy(line.substr(0, 12))); \
+	    line = line.substr(12);					\
+	  }								\
+	  node_labels.push_back(boost::algorithm::trim_copy(line));	\
+	  config.put<std::string>("node-labels", list_to_string(node_labels)); \
+	  /* Special case: Some structures have nothing but node labels! */ \
+	  if (structname != "JUNCTION") {				\
+	    std::getline(is, line);					\
+	  }								\
+	  /* Special case: Reservoirs have two lines of node labels */	\
+	  if (structname == "RESERVOIR #revision#1") {			\
+	    boost::property_tree::ptree& extra =			\
+	      config.put_child("extra", boost::property_tree::ptree());	\
+	    if ( line.size() >= 12 ) {					\
+	      std::string lat = boost::algorithm::trim_copy(line.substr(0, 12)); \
+	      line = line.substr(12);					\
+	      extra.put<std::string>("lateral-1", lat);			\
+	    }								\
+	    if ( line.size() >= 12 ) {					\
+	      std::string lat = boost::algorithm::trim_copy(line.substr(0, 12)); \
+	      line = line.substr(12);					\
+	      extra.put<std::string>("lateral-2", lat);			\
+	    }								\
+	    if ( line.size() >= 12 ) {					\
+	      std::string lat = boost::algorithm::trim_copy(line.substr(0, 12)); \
+	      line = line.substr(12);					\
+	      extra.put<std::string>("lateral-3", lat);			\
+	    }								\
+	    if ( line.size() >= 12 ) {					\
+	      std::string lat = boost::algorithm::trim_copy(line.substr(0, 12)); \
+	      line = line.substr(12);					\
+	      extra.put<std::string>("lateral-4", lat);			\
+	    }								\
+	    std::getline(is, line);					\
+	  }								\
+	} else {							\
+	  std::ostringstream oss("COMMENT ");				\
+	  oss << no_of_structures();					\
+	  structure_name = oss.str();					\
+	  config.put<std::string>("node-labels", "COMMENT");		\
+	}
+    
 #define ISIS_STRUCTURE_END						\
     this->append_structure(structure_name, make_structure(type, config)); \
     continue;								\
   }									\
-  } // End of if from ISIS_STRUCTURE_START
+} // End of if from ISIS_STRUCTURE_START
 
 #define ISIS_REACH_SECTION_START(NAME, ISIS_NAME)			\
     structname = ISIS_NAME;						\
@@ -423,15 +453,15 @@ namespace HyNDAL {
       line = line.substr(10);						\
     }
 
-#define ISIS_PROPERTY(TYPE, NAME, DEFAULT)			\
-    std::string NAME;						\
-    if (line.size() < 10) {					\
-      NAME = boost::algorithm::trim_copy(line);			\
-      line = "";						\
-    } else {							\
-      NAME = boost::algorithm::trim_copy(line.substr(0, 10));	\
-      line = line.substr(10);					\
-    }								\
+#define ISIS_PROPERTY(TYPE, NAME, DEFAULT, DISPLAY_NAME, HELP_TEXT)	\
+    std::string NAME;							\
+    if (line.size() < 10) {						\
+      NAME = boost::algorithm::trim_copy(line);				\
+      line = "";							\
+    } else {								\
+      NAME = boost::algorithm::trim_copy(line.substr(0, 10));		\
+      line = line.substr(10);						\
+    }									\
     config.put(#NAME, NAME);
 
 #define ISIS_REACH_LENGTH					\
@@ -460,10 +490,8 @@ namespace HyNDAL {
 #define ISIS_END_IF				\
     }
   
-    void ISISNetwork::add_dat_structures(std::istream& is)
+    size_t ISISNetwork::add_dat_structures(std::istream& is)
     {
-      size_t initial_nodes = initial_conditions_->no_of_rows();
-
       // Read in the general block from the top of the file
       std::string line;
       
@@ -478,7 +506,7 @@ namespace HyNDAL {
 	metadata_->set_long_int("no of nodes",
 	atol(line.substr(0,10).c_str()));
       */
-      size_t no_of_nodes = atol(line.substr(0,10).c_str());
+      // size_t no_of_nodes = atol(line.substr(0,10).c_str());
       metadata_.put<double>("lower-Fr-transition",
 			    atof(line.substr(10,10).c_str()));
       metadata_.put<double>("upper-Fr-transition",
@@ -511,27 +539,52 @@ namespace HyNDAL {
       // This line should contain the keyword "END GENERAL"
 
       // Read in the structures
-      add_structures(is);
-
-      /*
-      if (initial_conditions_->no_of_rows() != no_of_nodes - initial_nodes) {
-	PRINT(5) << "Number of node labels added does not"
-	  " match number claimed in .DAT file." << std::endl;
+      size_t no_of_structures;
+      try {
+	no_of_structures = add_structures(is);
+      } catch (std::exception& e) {
+	std::cerr << "Exception: " << e.what() << std::endl;
+	throw e;
       }
-      */
 
       // Read in the initial conditions table
-      // TODO
+      std::getline(is, line);
+      // This line should contain the initial condition column headers
+      while (is) {
+	std::string line;
+	std::getline(is, line);
 
+	// std::cout << line << std::endl;
+	
+	if (is.eof() || line.size() < 75) break;
+	
+	std::string node_label = line.substr(0,12);
+	boost::algorithm::trim(node_label);
+
+	initial_conditions_map_[node_label] =
+	  InitialConditionData(std::stod(line.substr(14, 10)),
+			       std::stod(line.substr(24, 10)),
+			       std::stod(line.substr(34, 10)),
+			       std::stod(line.substr(44, 10)),
+			       std::stod(line.substr(54, 10)),
+			       std::stod(line.substr(64, 10)),
+			       std::stod(line.substr(74)));
+	// std::cout << "Read initial conditon for " << node_label << std::endl;
+      }
+
+      return no_of_structures;
     }
 
-    void ISISNetwork::add_structures(std::istream& is)
+    size_t ISISNetwork::add_structures(std::istream& is)
     {
+      size_t count = 0;
       while (is) {
 	std::string line;
 	std::getline(is, line);
 
 	if (line.find("INITIAL CONDITIONS") == 0) break;
+
+	std::cout << "Adding structure " << ++count << ": " << line << std::endl;
 
 	std::string structname;
 	std::string structname2;
@@ -548,6 +601,7 @@ namespace HyNDAL {
 #include "structure_definitions.hpp"
 
       }
+      return count;
     }
 
 #define ISIS_STRUCTURE_START(NAME, ISIS_NAME)				\
@@ -613,12 +667,12 @@ namespace HyNDAL {
 #define ISIS_NO_OF_DATA(TABLE)						\
     os << std::setw(10) << std::right << istruct->TABLE().no_of_rows();
 
-#define ISIS_PROPERTY(TYPE, NAME, DEFAULT)				\
-    TYPE NAME = istruct->NAME();					\
-    os << std::setw(10)							\
-    << (std::string(#TYPE) == "string" ? std::left : std::right)	\
-    << std::fixed << std::setprecision(3)				\
-    << NAME;
+#define ISIS_PROPERTY(TYPE, NAME, DEFAULT, DISPLAY_NAME, HELP_TEXT)	\
+  TYPE NAME = istruct->NAME();						\
+  os << std::setw(10)							\
+  << (std::string(#TYPE) == "string" ? std::left : std::right)		\
+  << std::fixed << std::setprecision(3)					\
+  << NAME;
 
 #define ISIS_KEYWORD(KEYWORD)			\
     os << KEYWORD;
@@ -647,7 +701,7 @@ namespace HyNDAL {
       os << metadata_.get<std::string>("title", "") << std::endl
 	 << "#REVISION#1" << std::endl
 	 << std::setw(10) << std::fixed << std::setprecision(3)
-	 << initial_conditions_->no_of_rows()
+	 << no_of_node_labels()
 	 << std::setw(10) << std::fixed << std::setprecision(3)
 	 << metadata_.get<double>("lower-Fr-transition", 0.7)
 	 << std::setw(10) << std::fixed << std::setprecision(3)
@@ -685,8 +739,16 @@ namespace HyNDAL {
 	 << " label   ?      flow     stage froude no"
 	 <<"  velocity     umode    ustate         z" << std::endl;
 
-      initial_conditions_->write_raw(os);
-      os << std::endl;
+      for (auto nl : node_label_set()) {
+	os << std::setw(12) << std::left << nl
+	   << std::setw(2) << " y";
+	for (auto icv : initial_conditions_map_[nl]) {
+	  os << std::setw(10) << std::right << std::fixed << std::setprecision(3) << icv;
+	}
+	os << std::endl;
+      }
+      // initial_conditions_->write_raw(os);
+      //os << std::endl;
     }
 
     void ISISNetwork::write_structures(std::ostream& os)
@@ -704,9 +766,11 @@ namespace HyNDAL {
     boost::property_tree::ptree ISISNetwork::configuration(void) {
       boost::property_tree::ptree config = HyNDAL::OneDNetwork::configuration();
       config.put_child("metadata", metadata_);
+      /*
       boost::property_tree::ptree icconfig
 	= initial_conditions_->configuration();
       config.put_child("initial-conditions", icconfig);
+      */
       return config;
     }
 

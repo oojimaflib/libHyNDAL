@@ -1,5 +1,5 @@
 ISIS_STRUCTURE_START(ISISLateralInflow, "LATERAL #revision#1")
-ISIS_PROPERTY(string, weight_method, "REACH")
+ISIS_PROPERTY(string, weight_method, "REACH", "Weight Method", "")
 ISIS_NEW_LINE
 ISIS_NO_OF_DATA(distribution_table)
 ISIS_DATA_TABLE(distribution_table, "00000000000011111111112222222222")

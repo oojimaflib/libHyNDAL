@@ -1,6 +1,6 @@
 ISIS_REACH_SECTION_START(ISISReplicate, "REPLICATE")
 ISIS_REACH_LENGTH
-ISIS_PROPERTY(double, bed_drop, 0.0)
-ISIS_PROPERTY(double, easting, 0.0)
-ISIS_PROPERTY(double, northing, 0.0)
+ISIS_PROPERTY(double, bed_drop, 0.0, "Bed Drop", "")
+ISIS_PROPERTY(double, easting, 0.0, "Easting", "")
+ISIS_PROPERTY(double, northing, 0.0, "Northing", "")
 ISIS_REACH_SECTION_END

@@ -164,8 +164,10 @@ namespace HyNDAL {
 	if (format_ == "~block~") return data_.at(0);
 	if (format_ == "~rules~") return data_.at(row);
 	return "";
-      } else { 
+      } else {
+	if (row >= data_.size()) return "";
 	size_t start_char = format_.find_first_of(col_to_label(col));
+	if (start_char >= data_.at(row).size()) return "";
 	size_t end_char = format_.find_last_of(col_to_label(col)) + 1;
 	std::string value = data_.at(row).substr(start_char, end_char - start_char);
 	return boost::algorithm::trim_copy(value);
@@ -263,7 +265,7 @@ namespace HyNDAL {
 	      std::getline(is,line);
 	      boost::algorithm::trim_right(line);
 	      rule_text += line;
-	      if (line.find("END") == 0) end_of_rule = true;
+	      if (line.find("END") == 0 or line.find("end") == 0) end_of_rule = true;
 	      if (!end_of_rule) rule_text += "\n";
 	    }
 	    data_.push_back(rule_text);

@@ -1,16 +1,16 @@
 ISIS_STRUCTURE_START(ISISPump, "OCPUMP")
-ISIS_PROPERTY(double, max_rpm, 0.0)
-ISIS_PROPERTY(double, optimal_head, 0.0)
-ISIS_PROPERTY(double, optimal_discharge, 0.0)
-ISIS_PROPERTY(double, optimal_efficiency, 0.0)
+ISIS_PROPERTY(double, max_rpm, 0.0, "Max RPM", "")
+ISIS_PROPERTY(double, optimal_head, 0.0, "Optimal Head", "")
+ISIS_PROPERTY(double, optimal_discharge, 0.0, "Optimal Discharge", "")
+ISIS_PROPERTY(double, optimal_efficiency, 0.0, "Optimal Efficiency", "")
 ISIS_NEW_LINE
-ISIS_PROPERTY(string, control_method, "TIME")
+ISIS_PROPERTY(string, control_method, "TIME", "Control Method", "")
 ISIS_NEW_LINE
 // Keyword: TRIGGER MODE
 ISIS_NEW_LINE
 ISIS_NO_OF_DATA(operations_table)
-ISIS_PROPERTY(string, time_units, "HOURS")
-ISIS_PROPERTY(string, repeat_flag, "EXTEND")
+ISIS_PROPERTY(string, time_units, "HOURS", "Time Units", "")
+ISIS_PROPERTY(string, repeat_flag, "EXTEND", "Repeat Flag", "")
 ISIS_DATA_TABLE(operations_table, "000000000011111111112222222222")
 ISIS_TABLE_COLUMN(double, time, 0, operations_table)
 ISIS_TABLE_COLUMN(string, control_mode, 1, operations_table)
@@ -27,9 +27,9 @@ ISIS_NEW_LINE
 ISIS_KEYWORD("RULES")
 ISIS_NEW_LINE
 ISIS_NO_OF_DATA(rules_table)
-ISIS_PROPERTY(double, rules_sample_time, 0.0)
-ISIS_PROPERTY(string, rules_time_units, "HOURS")
-ISIS_PROPERTY(string, rules_repeat_flag, "EXTEND")
+ISIS_PROPERTY(double, rules_sample_time, 0.0, "Sample Time", "")
+ISIS_PROPERTY(string, rules_time_units, "HOURS", "Rules Time Units", "")
+ISIS_PROPERTY(string, rules_repeat_flag, "EXTEND", "Rules Repeat Flag", "")
 ISIS_DATA_TABLE(rules_table, "~rules~")
 ISIS_NEW_LINE
 ISIS_KEYWORD("TIME RULE DATA SET")

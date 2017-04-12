@@ -1,7 +1,7 @@
 ISIS_STRUCTURE_START(ISISQHControlWeir, "QH CONTROL")
-ISIS_PROPERTY(double, elevation, 0.0)
-ISIS_PROPERTY(double, modular_limit, 0.7)
-ISIS_PROPERTY(string, interpolation_flag, "LINEAR")
+ISIS_PROPERTY(double, elevation, 0.0, "Crest Elevation", "")
+ISIS_PROPERTY(double, modular_limit, 0.7, "Modular Limit", "")
+ISIS_PROPERTY(string, interpolation_flag, "LINEAR", "Interpolation Method", "")
 ISIS_NEW_LINE
 ISIS_NO_OF_DATA(qh_table)
 ISIS_DATA_TABLE(qh_table, "00000000001111111111")

@@ -6,7 +6,7 @@ ISIS_DATA_TABLE(sa_table, "00000000001111111111")
 ISIS_TABLE_COLUMN(double, stage, 0, sa_table)
 ISIS_TABLE_COLUMN(double, area, 1, sa_table)
 ISIS_NEW_LINE
-ISIS_PROPERTY(double, easting, 0.0)
-ISIS_PROPERTY(double, northing, 0.0)
-ISIS_PROPERTY(double, runoff_factor, 0.0)
+ISIS_PROPERTY(double, easting, 0.0, "Easting", "")
+ISIS_PROPERTY(double, northing, 0.0, "Northing", "")
+ISIS_PROPERTY(double, runoff_factor, 0.0, "Runoff Factor", "")
 ISIS_STRUCTURE_END

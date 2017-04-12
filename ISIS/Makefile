@@ -1,8 +1,8 @@
 CC=g++
 PREFIX=/usr/local
 LIBNAME=../libHyNDAL_ISIS.so
-CXXFLAGS=-g -pthread -fPIC -DTESTING -Wall -I../../boost/include
-LDFLAGS=-g -pthread -fPIC -DTESTING -Wall -L../../boost/lib -L..
+CXXFLAGS=-g -std=c++11 -pthread -fPIC -DTESTING -Wall -I../../boost/include
+LDFLAGS=-g -std=c++11 -pthread -fPIC -DTESTING -Wall -L../../boost/lib -L..
 LIBS=-lHyNDAL
 
 SOURCES=ISISDataTable.cpp			\

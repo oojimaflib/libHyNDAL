@@ -1,8 +1,8 @@
 CC=g++
 PREFIX=/usr/local
 LIBNAME=libHyNDAL.so
-CXXFLAGS=-g -pthread -fPIC -DTESTING -Wall -I../boost/include
-LDFLAGS=-g -pthread -fPIC -DTESTING -Wall -L../boost/lib
+CXXFLAGS=-g -std=c++11 -pthread -fPIC -DTESTING -Wall -I../boost/include
+LDFLAGS=-g -std=c++11 -pthread -fPIC -DTESTING -Wall -L../boost/lib
 LIBS=-L.
 
 SOURCES=OneDNetwork.cpp 			\

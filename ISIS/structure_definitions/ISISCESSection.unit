@@ -1,8 +1,8 @@
 ISIS_REACH_SECTION_START(ISISCESSection, "RIVER|CES SECTION #REVISION#1")
 ISIS_REACH_LENGTH
-ISIS_PROPERTY(double, vertical_shift, 0.0)
-ISIS_PROPERTY(double, slope, 0.001)
-ISIS_PROPERTY(double, sinuosity, 1.0)
+ISIS_PROPERTY(double, vertical_shift, 0.0, "Vertical Shift", "")
+ISIS_PROPERTY(double, slope, 0.001, "Slope", "")
+ISIS_PROPERTY(double, sinuosity, 1.0, "Sinuosity", "")
 ISIS_NEW_LINE
 ISIS_NO_OF_DATA(section_table)
 ISIS_DATA_TABLE(section_table,

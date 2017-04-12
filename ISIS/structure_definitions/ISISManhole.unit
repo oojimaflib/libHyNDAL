@@ -1,7 +1,7 @@
 ISIS_STRUCTURE_START(ISISManhole, "MANHOLE #REVISION#1")
-ISIS_PROPERTY(double, elevation, 0.0)
-ISIS_PROPERTY(double, diameter, 0.001)
-ISIS_PROPERTY(double, calibration_coefficient, 1.7)
-ISIS_PROPERTY(double, modular_limit, 0.9)
-ISIS_PROPERTY(double, loss_coefficient, 0.0)
+ISIS_PROPERTY(double, elevation, 0.0, "Elevation", "")
+ISIS_PROPERTY(double, diameter, 0.001, "Diameter", "")
+ISIS_PROPERTY(double, calibration_coefficient, 1.7, "Calibration Coefficient", "")
+ISIS_PROPERTY(double, modular_limit, 0.9, "Modular Limit", "")
+ISIS_PROPERTY(double, loss_coefficient, 0.0, "Loss Coefficient", "")
 ISIS_STRUCTURE_END
