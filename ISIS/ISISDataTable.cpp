@@ -220,7 +220,7 @@ namespace HyNDAL {
     void ISISDataTable::set_double(size_t row, size_t col, double value)
     {
       std::ostringstream oss;
-      oss << std::setprecision(9) << value;
+      oss << std::fixed << std::setprecision(9) << std::setw(10) << value;
       set_string(row, col, oss.str());
     }
 
@@ -283,7 +283,7 @@ namespace HyNDAL {
     void ISISDataTable::write_raw(std::ostream& os) {
       for (size_t i = 0; i < data_.size(); i++) {
 	if (i != 0) os << std::endl;
-	os << data_.at(i);
+	os  << data_.at(i);
       }
     }
 
