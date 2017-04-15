@@ -1,28 +1,28 @@
 ISIS_STRUCTURE_START(ISISVerticalSluice, "SLUICE|VERTICAL")
-ISIS_PROPERTY(double, weir_coefficient, 1.0)
-ISIS_PROPERTY(double, gate_coefficient, 1.0)
-ISIS_PROPERTY(double, breadth, 0.0)
-ISIS_PROPERTY(double, elevation, 0.0)
-ISIS_PROPERTY(double, gate_depth, 0.0)
-ISIS_PROPERTY(double, weir_length, 0.0)
+ISIS_PROPERTY(double, weir_coefficient, 1.0, "Weir Coefficient", "")
+ISIS_PROPERTY(double, gate_coefficient, 1.0, "Gate Coefficient", "")
+ISIS_PROPERTY(double, breadth, 0.0, "Weir Breadth", "")
+ISIS_PROPERTY(double, elevation, 0.0, "Crest Elevation", "")
+ISIS_PROPERTY(double, gate_depth, 0.0, "Gate Depth", "")
+ISIS_PROPERTY(double, weir_length, 0.0, "Weir Length", "")
 ISIS_NEW_LINE
-ISIS_PROPERTY(double, p1, 0.0)
-ISIS_PROPERTY(double, p2, 0.0)
-ISIS_PROPERTY(long_int, bias_factor, 1)
-ISIS_PROPERTY(double, overtop_coefficient, 1.0)
-ISIS_PROPERTY(double, weir_modular_limit, 0.0)
-ISIS_PROPERTY(double, gate_modular_limit, 0.0)
-ISIS_PROPERTY(double, overtop_modular_limit, 0.0)
+ISIS_PROPERTY(double, p1, 0.0, "Upstream Rise", "")
+ISIS_PROPERTY(double, p2, 0.0, "Downstream Fall", "")
+ISIS_PROPERTY(long_int, bias_factor, 1, "Bias Factor", "")
+ISIS_PROPERTY(double, overtop_coefficient, 1.0, "Overtopping Coefficient", "")
+ISIS_PROPERTY(double, weir_modular_limit, 0.0, "Weir Modular Limit", "")
+ISIS_PROPERTY(double, gate_modular_limit, 0.0, "Gate Modular Limit", "")
+ISIS_PROPERTY(double, overtop_modular_limit, 0.0, "Overtopping Modular Limit", "")
 ISIS_NEW_LINE
-ISIS_PROPERTY(string, no_of_gates, "1")
-ISIS_PROPERTY(string, time_units, "HOURS")
-ISIS_PROPERTY(string, repeat_flag, "EXTEND")
+ISIS_PROPERTY(string, no_of_gates, "1", "No of Gates", "")
+ISIS_PROPERTY(string, time_units, "HOURS", "Time Units", "")
+ISIS_PROPERTY(string, repeat_flag, "EXTEND", "Repeat Flag", "")
 ISIS_NEW_LINE
-ISIS_PROPERTY(string, operating_mode, "TIME")
-ISIS_PROPERTY(double, max_movement_rate, 0.0)
-ISIS_PROPERTY(double, max_opening, 0.0)
-ISIS_PROPERTY(double, min_opening, 0.0)
-ISIS_PROPERTY(string, setsluice_node_label, "")
+ISIS_PROPERTY(string, operating_mode, "TIME", "Operating Mode", "")
+ISIS_PROPERTY(double, max_movement_rate, 0.0, "Max Movement Rate", "")
+ISIS_PROPERTY(double, max_opening, 0.0, "Max Opening", "")
+ISIS_PROPERTY(double, min_opening, 0.0, "Min Opening", "")
+ISIS_PROPERTY(string, setsluice_node_label, "", "Setsluice Node Label", "")
 
 ISIS_IF(atol(no_of_gates.c_str()) >= 1)
 ISIS_NEW_LINE
@@ -42,8 +42,52 @@ ISIS_NEW_LINE
 ISIS_NO_OF_DATA(gate2_table)
 ISIS_DATA_TABLE(gate2_table, "000000000000111111111111222222222222")
 ISIS_TABLE_COLUMN(double, gate2_time, 0, gate2_table)
-ISIS_TABLE_COLUMN(string, gate2_operating_mode, 2, gate1_table)
+ISIS_TABLE_COLUMN(string, gate2_operating_mode, 1, gate3_table)
 ISIS_TABLE_COLUMN(double, gate2_opening, 2, gate2_table)
+ISIS_END_IF
+
+ISIS_IF(atol(no_of_gates.c_str()) >= 3)
+ISIS_NEW_LINE
+ISIS_KEYWORD("GATE 3")
+ISIS_NEW_LINE
+ISIS_NO_OF_DATA(gate3_table)
+ISIS_DATA_TABLE(gate3_table, "000000000000111111111111222222222222")
+ISIS_TABLE_COLUMN(double, gate3_time, 0, gate3_table)
+ISIS_TABLE_COLUMN(string, gate3_operating_mode, 1, gate3_table)
+ISIS_TABLE_COLUMN(double, gate3_opening, 2, gate3_table)
+ISIS_END_IF
+
+ISIS_IF(atol(no_of_gates.c_str()) >= 4)
+ISIS_NEW_LINE
+ISIS_KEYWORD("GATE 4")
+ISIS_NEW_LINE
+ISIS_NO_OF_DATA(gate4_table)
+ISIS_DATA_TABLE(gate4_table, "000000000000111111111111222222222222")
+ISIS_TABLE_COLUMN(double, gate4_time, 0, gate4_table)
+ISIS_TABLE_COLUMN(string, gate4_operating_mode, 1, gate4_table)
+ISIS_TABLE_COLUMN(double, gate4_opening, 2, gate4_table)
+ISIS_END_IF
+
+ISIS_IF(atol(no_of_gates.c_str()) >= 5)
+ISIS_NEW_LINE
+ISIS_KEYWORD("GATE 5")
+ISIS_NEW_LINE
+ISIS_NO_OF_DATA(gate5_table)
+ISIS_DATA_TABLE(gate5_table, "000000000000111111111111222222222222")
+ISIS_TABLE_COLUMN(double, gate5_time, 0, gate5_table)
+ISIS_TABLE_COLUMN(string, gate5_operating_mode, 1, gate5_table)
+ISIS_TABLE_COLUMN(double, gate5_opening, 2, gate5_table)
+ISIS_END_IF
+
+ISIS_IF(atol(no_of_gates.c_str()) >= 6)
+ISIS_NEW_LINE
+ISIS_KEYWORD("GATE 6")
+ISIS_NEW_LINE
+ISIS_NO_OF_DATA(gate6_table)
+ISIS_DATA_TABLE(gate6_table, "000000000000111111111111222222222222")
+ISIS_TABLE_COLUMN(double, gate6_time, 0, gate6_table)
+ISIS_TABLE_COLUMN(string, gate6_operating_mode, 1, gate6_table)
+ISIS_TABLE_COLUMN(double, gate6_opening, 2, gate6_table)
 ISIS_END_IF
 
 ISIS_IF(operating_mode == "LOGICAL")
@@ -51,9 +95,9 @@ ISIS_NEW_LINE
 ISIS_KEYWORD("RULES")
 ISIS_NEW_LINE
 ISIS_NO_OF_DATA(rules_table)
-ISIS_PROPERTY(double, rules_sample_time, 0.0)
-ISIS_PROPERTY(string, rules_time_units, "HOURS")
-ISIS_PROPERTY(string, rules_repeat_flag, "EXTEND")
+ISIS_PROPERTY(double, rules_sample_time, 0.0, "Sample Time", "")
+ISIS_PROPERTY(string, rules_time_units, "HOURS", "Rules Time Units", "")
+ISIS_PROPERTY(string, rules_repeat_flag, "EXTEND", "Rules Repeat Flag", "")
 ISIS_DATA_TABLE(rules_table, "~rules~")
 ISIS_NEW_LINE
 ISIS_KEYWORD("TIME RULE DATA SET")

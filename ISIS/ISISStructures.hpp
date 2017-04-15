@@ -48,6 +48,12 @@ namespace HyNDAL {
        = boost::property_tree::ptree());				\
   virtual ~NAME(void);							\
   virtual std::string type(void);					\
+  virtual std::string property_type_by_name(const std::string& name);	\
+  virtual std::string property_by_name(const std::string& name);	\
+  virtual size_t table_no_of_rows_by_name(const std::string& name);	\
+  virtual std::string table_entry_by_name(const std::string& name,	\
+					  size_t row, size_t col);	\
+  virtual void set_table_entry_by_name(const std::string& name, size_t row, size_t col, const std::string& newval);	\
   virtual boost::property_tree::ptree& extra_data(void);		\
   virtual boost::property_tree::ptree configuration(void);
     
@@ -66,6 +72,12 @@ namespace HyNDAL {
        = boost::property_tree::ptree());				\
   virtual ~NAME(void);							\
   virtual std::string type(void);					\
+  virtual std::string property_type_by_name(const std::string& name);	\
+  virtual std::string property_by_name(const std::string& name);	\
+  virtual size_t table_no_of_rows_by_name(const std::string& name);	\
+  virtual std::string table_entry_by_name(const std::string& name,	\
+					  size_t row, size_t col);	\
+  virtual void set_table_entry_by_name(const std::string& name, size_t row, size_t col, const std::string& newval);	\
   virtual boost::property_tree::ptree& extra_data(void);		\
   virtual boost::property_tree::ptree configuration(void);
     
@@ -75,11 +87,15 @@ namespace HyNDAL {
 #define ISIS_REACH_SECTION_END			\
     };
     
-#define ISIS_PROPERTY(TYPE, NAME, DEFAULT)		\
-    private:						\
-    TYPE NAME##_;					\
-  public:						\
-  virtual TYPE& NAME(void) { return NAME##_; }
+#define ISIS_PROPERTY(TYPE, NAME, DEFAULT, DISPLAY_NAME, HELP_TEXT)	\
+  private:								\
+  TYPE NAME##_;								\
+public:									\
+ virtual TYPE& NAME(void) { return NAME##_; }				\
+ virtual std::string NAME##_data_type(void)				\
+ {									\
+   return #TYPE;							\
+ }
     
 #define ISIS_DATA_TABLE(NAME, FORMAT)			\
     private:						\

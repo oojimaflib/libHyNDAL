@@ -1,5 +1,5 @@
 ISIS_REACH_SECTION_START(ISISInterpolate, "INTERPOLATE")
 ISIS_REACH_LENGTH
-ISIS_PROPERTY(double, easting, 0.0)
-ISIS_PROPERTY(double, northing, 0.0)
+ISIS_PROPERTY(double, easting, 0.0, "Easting", "")
+ISIS_PROPERTY(double, northing, 0.0, "Northing", "")
 ISIS_REACH_SECTION_END

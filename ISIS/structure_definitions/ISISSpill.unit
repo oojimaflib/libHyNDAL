@@ -1,6 +1,6 @@
 ISIS_STRUCTURE_START(ISISSpill, "SPILL")
-ISIS_PROPERTY(double, weir_coefficient, 1.7)
-ISIS_PROPERTY(double, modular_limit, 0.8)
+ISIS_PROPERTY(double, weir_coefficient, 1.7, "Weir Coefficient", "")
+ISIS_PROPERTY(double, modular_limit, 0.8, "Modular Limit", "")
 ISIS_NEW_LINE
 ISIS_NO_OF_DATA(section_table)
 ISIS_DATA_TABLE(section_table, "0000000000111111111")

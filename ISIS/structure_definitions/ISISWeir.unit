@@ -1,9 +1,9 @@
 ISIS_STRUCTURE_START(ISISWeir, "WEIR")
-ISIS_PROPERTY(double, exponent, 1.5)
+ISIS_PROPERTY(double, exponent, 1.5, "Exponent", "")
 ISIS_NEW_LINE
-ISIS_PROPERTY(double, discharge_coefficient, 1.0)
-ISIS_PROPERTY(double, velocity_coefficient, 1.0)
-ISIS_PROPERTY(double, breadth, 0.0)
-ISIS_PROPERTY(double, elevation, 0.0)
-ISIS_PROPERTY(double, modular_limit, 0.8)
+ISIS_PROPERTY(double, discharge_coefficient, 1.0, "Discharge Coefficient", "")
+ISIS_PROPERTY(double, velocity_coefficient, 1.0, "Velocity Coefficient", "")
+ISIS_PROPERTY(double, breadth, 0.0, "Weir Breadth", "")
+ISIS_PROPERTY(double, elevation, 0.0, "Elevation", "")
+ISIS_PROPERTY(double, modular_limit, 0.8, "Modular Limit", "")
 ISIS_STRUCTURE_END

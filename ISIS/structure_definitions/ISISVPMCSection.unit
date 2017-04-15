@@ -1,11 +1,11 @@
 ISIS_REACH_SECTION_START(ISISVPMCSection, "RIVER|MUSK-XSEC")
 ISIS_REACH_LENGTH
-ISIS_PROPERTY(double, elevation, 0.0)
-ISIS_PROPERTY(double, slope, 0.0)
-ISIS_PROPERTY(long_int, minimum_subnodes, 0)
-ISIS_PROPERTY(long_int, maximum_subnodes, 0)
-ISIS_PROPERTY(string, qmax, "")
-ISIS_PROPERTY(double, c0_factor, 0.0)
+ISIS_PROPERTY(double, elevation, 0.0, "Elevation", "")
+ISIS_PROPERTY(double, slope, 0.0, "Slope", "")
+ISIS_PROPERTY(long_int, minimum_subnodes, 0, "Min Subnodes", "")
+ISIS_PROPERTY(long_int, maximum_subnodes, 0, "Max Subnodes", "")
+ISIS_PROPERTY(string, qmax, "", "Qmax", "")
+ISIS_PROPERTY(double, c0_factor, 0.0, "c0 Factor", "")
 ISIS_NEW_LINE
 ISIS_KEYWORD("CROSS SECTION")
 ISIS_NEW_LINE
@@ -22,7 +22,7 @@ ISIS_TABLE_COLUMN(string, bank_marker, 5, section_table)
 ISIS_TABLE_COLUMN(double, easting, 6, section_table)
 ISIS_TABLE_COLUMN(double, northing, 7, section_table)
 ISIS_NEW_LINE
-ISIS_PROPERTY(string, data_type, "")
+ISIS_PROPERTY(string, data_type, "", "Data Type", "")
 ISIS_NEW_LINE
 ISIS_IF(data_type == "VQ RATING")
 ISIS_NO_OF_DATA(vq_table)
@@ -31,9 +31,9 @@ ISIS_TABLE_COLUMN(double, v, 0, vq_table)
 ISIS_TABLE_COLUMN(double, q, 1, vq_table)
 ISIS_END_IF
 ISIS_IF(data_type == "VQ POWER L")
-ISIS_PROPERTY(double, a, 0.0)
-ISIS_PROPERTY(double, b, 0.0)
-ISIS_PROPERTY(double, minimum_velocity, 0.0)
-ISIS_PROPERTY(double, minimum_discharge, 0.0)
+ISIS_PROPERTY(double, a, 0.0, "a", "")
+ISIS_PROPERTY(double, b, 0.0, "b", "")
+ISIS_PROPERTY(double, minimum_velocity, 0.0, "Min Velocity", "")
+ISIS_PROPERTY(double, minimum_discharge, 0.0, "Min Discharge", "")
 ISIS_END_IF
 ISIS_REACH_SECTION_END
