@@ -14,5 +14,6 @@ ISIS_PROPERTY(string, top_slot_height, "", "Top Slot Height", "")
 ISIS_PROPERTY(string, top_slot_depth, "", "Top Slot Depth", "")
 ISIS_NEW_LINE
 ISIS_PROPERTY(double, bottom_friction, 0.0, "Bottom Friction", "")
-ISIS_PROPERTY(double, arch_friction, 0.0, "Arch Friction", "")
+ISIS_PROPERTY(double, side_friction, 0.0, "Side Friction", "")
+ISIS_PROPERTY(double, top_friction, 0.0, "Top Friction", "")
 ISIS_REACH_SECTION_END
